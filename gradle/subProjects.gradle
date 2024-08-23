@@ -1,0 +1,32 @@
+subprojects {
+  dependencies {
+    // Quarkus
+    implementation enforcedPlatform("$quarkusPlatformGroupId:$quarkusPlatformArtifactId:$quarkusVersion")
+    implementation 'io.quarkus:quarkus-rest'
+    implementation 'io.quarkus:quarkus-arc'
+    implementation 'io.quarkus:quarkus-config-yaml'
+
+    // General
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+    // Quarkus test
+    testImplementation 'io.quarkus:quarkus-junit5'
+    testImplementation 'io.rest-assured:rest-assured'
+
+    // General test
+    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    testImplementation "org.assertj:assertj-core:$assertJVersion"
+    testImplementation platform('org.junit:junit-bom')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.mockito:mockito-core'
+    testImplementation 'org.mockito:mockito-junit-jupiter'
+    testImplementation 'org.awaitility:awaitility'
+  }
+
+  test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport, jacocoTestCoverageVerification
+  }
+}

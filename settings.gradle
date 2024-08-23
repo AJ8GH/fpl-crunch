@@ -1,0 +1,13 @@
+pluginManagement {
+  plugins {
+    id 'io.quarkus' version quarkusVersion
+  }
+}
+
+rootProject.name = 'fpl-crunch'
+
+include 'api'
+include 'application'
+include 'client'
+include 'persistence'
+include 'service'
