@@ -2,8 +2,9 @@ subprojects {
   dependencies {
     // Quarkus
     implementation enforcedPlatform("$quarkusPlatformGroupId:$quarkusPlatformArtifactId:$quarkusVersion")
-    implementation 'io.quarkus:quarkus-rest'
+    implementation 'io.quarkus:quarkus-rest-jsonb'
     implementation 'io.quarkus:quarkus-arc'
+    implementation 'io.quarkus:quarkus-rest-client-jsonb'
     implementation 'io.quarkus:quarkus-config-yaml'
 
     // General

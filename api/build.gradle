@@ -1,0 +1,4 @@
+dependencies {
+  implementation project(clientModule)
+  implementation project(serviceModule)
+}
