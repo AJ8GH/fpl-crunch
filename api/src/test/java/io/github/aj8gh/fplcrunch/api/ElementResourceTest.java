@@ -1,5 +1,6 @@
 package io.github.aj8gh.fplcrunch.api;
 
+import static io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions.ELEMENT_ID;
 import static io.github.aj8gh.fplcrunch.api.util.Model.MAPPER;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -7,7 +8,7 @@ import static org.jboss.resteasy.reactive.RestResponse.StatusCode.OK;
 
 import io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions;
 import io.github.aj8gh.fplcrunch.api.util.Model;
-import io.github.aj8gh.fplcrunch.client.model.bootstrap.Bootstrap;
+import io.github.aj8gh.fplcrunch.client.model.element.ElementSummary;
 import io.quarkus.test.common.WithTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import lombok.SneakyThrows;
@@ -15,14 +16,14 @@ import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 @WithTestResource(WireMockExtensions.class)
-class BootstrapResourceTest {
+class ElementResourceTest {
 
   @Test
   @SneakyThrows
-  void getBootstrap() {
+  void getElementSummary() {
     var actual = given()
         .when()
-        .get(ApiPath.BOOTSTRAP)
+        .get(ApiPath.ELEMENT_SUMMARY, ELEMENT_ID)
         .then()
         .assertThat()
         .statusCode(OK)
@@ -30,7 +31,7 @@ class BootstrapResourceTest {
         .response()
         .print();
 
-    assertThat(MAPPER.readValue(actual, Bootstrap.class))
-        .isEqualTo(Model.BOOTSTRAP);
+    assertThat(MAPPER.readValue(actual, ElementSummary.class))
+        .isEqualTo(Model.ELEMENT_SUMMARY);
   }
 }

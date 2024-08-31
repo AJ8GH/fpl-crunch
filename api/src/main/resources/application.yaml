@@ -1,20 +1,6 @@
 fpl:
   api:
-    base-uri: https://fantasy.premierleague.com/api/
-  path:
-    bootstrap: /bootstrap-static/
-    fixtures: /fixtures/
-    players:
-      summary: /element-summary/{player-id}/
-      live: /event/{GW}/live/
-    managers:
-      team: /entry/{team-id}/
-      transfer: /entry/{team-id}/transfers/
-      pick: /entry/{team-id}/event/{GW}/picks/
-      history: /entry/{team-id}/history/
-    leagues:
-      classic: /leagues-classic/{league-id}/standings/
-      head-to-head: /leagues-h2h-matches/league/{league-ID}/
+    base-uri: https://fantasy.premierleague.com
 
 quarkus:
   rest-client:

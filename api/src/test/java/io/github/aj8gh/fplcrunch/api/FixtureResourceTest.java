@@ -5,24 +5,26 @@ import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.jboss.resteasy.reactive.RestResponse.StatusCode.OK;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions;
 import io.github.aj8gh.fplcrunch.api.util.Model;
-import io.github.aj8gh.fplcrunch.client.model.bootstrap.Bootstrap;
+import io.github.aj8gh.fplcrunch.client.model.fixture.Fixture;
 import io.quarkus.test.common.WithTestResource;
 import io.quarkus.test.junit.QuarkusTest;
+import java.util.List;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 @WithTestResource(WireMockExtensions.class)
-class BootstrapResourceTest {
+class FixtureResourceTest {
 
   @Test
   @SneakyThrows
-  void getBootstrap() {
+  void getFixtures() {
     var actual = given()
         .when()
-        .get(ApiPath.BOOTSTRAP)
+        .get(ApiPath.FIXTURES)
         .then()
         .assertThat()
         .statusCode(OK)
@@ -30,7 +32,7 @@ class BootstrapResourceTest {
         .response()
         .print();
 
-    assertThat(MAPPER.readValue(actual, Bootstrap.class))
-        .isEqualTo(Model.BOOTSTRAP);
+    assertThat(MAPPER.readValue(actual, new TypeReference<List<Fixture>>() {
+    })).isEqualTo(Model.FIXTURES);
   }
 }

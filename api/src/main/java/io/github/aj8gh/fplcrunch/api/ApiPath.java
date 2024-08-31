@@ -6,4 +6,6 @@ import lombok.experimental.UtilityClass;
 public class ApiPath {
 
   public static final String BOOTSTRAP = "/bootstrap";
+  public static final String FIXTURES = "/fixtures";
+  public static final String ELEMENT_SUMMARY = "/element-summary/{id}";
 }
