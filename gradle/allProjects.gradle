@@ -15,5 +15,21 @@ allprojects {
     toolchain {
       languageVersion.set(JavaLanguageVersion.of(javaVersion))
     }
+
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+  }
+
+  test {
+    systemProperty "java.util.logging.manager", "org.jboss.logmanager.LogManager"
+  }
+
+  compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+  }
+
+  compileTestJava {
+    options.encoding = 'UTF-8'
   }
 }

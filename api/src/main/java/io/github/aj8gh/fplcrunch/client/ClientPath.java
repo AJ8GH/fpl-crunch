@@ -3,8 +3,9 @@ package io.github.aj8gh.fplcrunch.client;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
-public class Path {
+public class ClientPath {
 
+  public static final String BASE = "/api";
   public static final String BOOTSTRAP_STATIC = "/bootstrap-static/";
   public static final String FIXTURES = "/fixtures/";
   public static final String ELEMENT_SUMMARY = "/element-summary/{id}/";

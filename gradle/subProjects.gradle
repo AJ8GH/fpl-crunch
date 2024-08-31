@@ -19,9 +19,11 @@ subprojects {
     testCompileOnly "org.projectlombok:lombok:$lombokVersion"
     testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
     testImplementation "org.assertj:assertj-core:$assertJVersion"
-    testImplementation platform('org.junit:junit-bom')
+    testImplementation "org.wiremock:wiremock:$wiremockVersion"
+    testImplementation "org.instancio:instancio-junit:$instancioVersion"
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.mockito:mockito-core'
+    testImplementation 'org.mockito:mockito-junit-jupiter'
     testImplementation 'org.mockito:mockito-junit-jupiter'
     testImplementation 'org.awaitility:awaitility'
   }

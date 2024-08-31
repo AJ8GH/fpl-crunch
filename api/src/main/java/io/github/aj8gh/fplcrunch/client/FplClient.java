@@ -1,8 +1,8 @@
 package io.github.aj8gh.fplcrunch.client;
 
-import static io.github.aj8gh.fplcrunch.client.Path.BOOTSTRAP_STATIC;
-import static io.github.aj8gh.fplcrunch.client.Path.ELEMENT_SUMMARY;
-import static io.github.aj8gh.fplcrunch.client.Path.FIXTURES;
+import static io.github.aj8gh.fplcrunch.client.ClientPath.BOOTSTRAP_STATIC;
+import static io.github.aj8gh.fplcrunch.client.ClientPath.ELEMENT_SUMMARY;
+import static io.github.aj8gh.fplcrunch.client.ClientPath.FIXTURES;
 import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
 
 import io.github.aj8gh.fplcrunch.client.model.bootstrap.Bootstrap;
