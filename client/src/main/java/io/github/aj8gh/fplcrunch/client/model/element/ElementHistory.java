@@ -1,47 +1,48 @@
 package io.github.aj8gh.fplcrunch.client.model.element;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import java.math.BigDecimal;
 import java.time.Instant;
 import lombok.Builder;
 
 @Builder(toBuilder = true)
 public record ElementHistory(
-    int element,
-    int fixture,
-    int opponentTeam,
-    int totalPoints,
-    boolean wasHome,
+    Integer element,
+    Integer fixture,
+    Integer opponentTeam,
+    Integer totalPoints,
+    Boolean wasHome,
     Instant kickoffTime,
-    int teamHScore,
-    int teamAScore,
-    int round,
-    int minutes,
-    int goalsScored,
-    int assists,
-    int cleanSheets,
-    int goalsConceded,
-    int ownGoals,
-    int penaltiesSaved,
-    int penaltiesMissed,
-    int yellowCards,
-    int redCards,
-    int saves,
-    int bonus,
-    int bps,
+    @JsonAlias("teamHScore") Integer teamHomeScore,
+    @JsonAlias("teamAScore") Integer teamAwayScore,
+    Integer round,
+    Integer minutes,
+    Integer goalsScored,
+    Integer assists,
+    Integer cleanSheets,
+    Integer goalsConceded,
+    Integer ownGoals,
+    Integer penaltiesSaved,
+    Integer penaltiesMissed,
+    Integer yellowCards,
+    Integer redCards,
+    Integer saves,
+    Integer bonus,
+    Integer bps,
     BigDecimal influence,
     BigDecimal creativity,
     BigDecimal threat,
     BigDecimal ictIndex,
-    int starts,
+    Integer starts,
     BigDecimal expectedGoals,
     BigDecimal expectedAssists,
     BigDecimal expectedGoalInvolvements,
     BigDecimal expectedGoalsConceded,
-    int value,
-    int transfersBalance,
-    int selected,
-    int transfersIn,
-    int transfersOut
+    Integer value,
+    Integer transfersBalance,
+    Integer selected,
+    Integer transfersIn,
+    Integer transfersOut
 ) {
 
 }

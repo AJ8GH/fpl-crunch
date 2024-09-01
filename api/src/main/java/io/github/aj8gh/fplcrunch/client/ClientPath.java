@@ -9,11 +9,11 @@ public class ClientPath {
   public static final String BOOTSTRAP_STATIC = "/bootstrap-static/";
   public static final String FIXTURES = "/fixtures/";
   public static final String ELEMENT_SUMMARY = "/element-summary/{id}/";
-  public static final String EVENT = "/event/{GW}/live/";
-  public static final String ENTRY = "/entry/{team-id}/";
-  public static final String ENTRY_PICKS = "/entry/{team-id}/event/{GW}/picks/";
-  public static final String ENTRY_TRANSFERS = "/entry/{team-id}/transfers/";
-  public static final String ENTRY_HISTORY = "/entry/{team-id}/history/";
-  public static final String LEAGUES_CLASSIC = "/leagues-classic/{league-id}/standings/";
-  public static final String LEAGUES_HEAD_TO_HEAD = "/leagues-h2h-matches/league/{league-ID}/";
+  public static final String EVENT = "/event/{gw}/live/";
+  public static final String ENTRY = "/entry/{id}/";
+  public static final String ENTRY_PICKS = "/entry/{id}/event/{gw}/picks/";
+  public static final String ENTRY_TRANSFERS = "/entry/{id}/transfers/";
+  public static final String ENTRY_HISTORY = "/entry/{id}/history/";
+  public static final String LEAGUES_CLASSIC = "/leagues-classic/{id}/standings/";
+  public static final String LEAGUES_HEAD_TO_HEAD = "/leagues-h2h-matches/league/{id}/";
 }

@@ -5,17 +5,17 @@ import lombok.Builder;
 
 @Builder(toBuilder = true)
 public record ElementType(
-    int id,
+    Integer id,
     String pluralName,
     String pluralNameShort,
     String singularName,
     String singularNameShort,
-    int squadSelect,
-    int squadMinPlay,
-    int squadMaxPlay,
-    boolean uiShirtSpecific,
+    Integer squadSelect,
+    Integer squadMinPlay,
+    Integer squadMaxPlay,
+    Boolean uiShirtSpecific,
     List<Integer> subPositionsLocked,
-    int elementCount
+    Integer elementCount
 ) {
 
 }

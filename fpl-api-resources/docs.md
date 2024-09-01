@@ -2,7 +2,8 @@
 
 ## What is the FPL API?
 
-in layman’s terms, the FPL API is a series of URL endpoints that allow you to retrieve data from the FPL site in json format (key value pairs in curly brackets), which you can use for yourself in any apps you create.
+in layman’s terms, the FPL API is a series of URL endpoints that allow you to retrieve data from the FPL site in json format (key value pairs in curly brackets), which you can use for yourself in any
+apps you create.
 
 Every endpoint begins with the /api/ parameter, so every fall you make will be:
 
@@ -19,6 +20,7 @@ The ‘bootstrap-static’ call returns a huge amount of information, and is all
 **Full URL**: https://fantasy.premierleague.com/api/bootstrap-static/
 
 **Data included**:
+
 * A summary of all 38 gameweeks
 * The game’s settings
 * Basic information on all 20 PL teams
@@ -29,11 +31,13 @@ The ‘bootstrap-static’ call returns a huge amount of information, and is all
 
 ## Fixtures
 
-This call shows some useful information on every single fixture that has happened, as well as placeholder info for upcoming gameweeks/fixtures. For past fixtures, you’ll need to know the IDs of the teams from the bootstrap-static call.
+This call shows some useful information on every single fixture that has happened, as well as placeholder info for upcoming gameweeks/fixtures. For past fixtures, you’ll need to know the IDs of the
+teams from the bootstrap-static call.
 
 **Full URL**: https://fantasy.premierleague.com/api/fixtures/
 
 **Data included**: Per match, it shows:
+
 * Goals
 * Assists
 * Cards
@@ -52,6 +56,7 @@ This one is handy if you want in-depth info on a specific player, including past
 **Full URL**: https://fantasy.premierleague.com/api/element-summary/{player-id}/
 
 **Data included**:
+
 * Remaining fixtures for the player, including:
 * Kickoff time
 * Gameweek number
@@ -88,6 +93,7 @@ Using this set of endpoints, you can retrieve information on any individual FPL 
 **Full URL**: https://fantasy.premierleague.com/api/entry/{team-id}/
 
 **Data included**:
+
 * Name
 * Team Name
 * Favourite team
@@ -110,6 +116,7 @@ Using this set of endpoints, you can retrieve information on any individual FPL 
 **Full URL**: https://fantasy.premierleague.com/api/entry/{team-id}/transfers/
 
 **Data included**: A full history of transfers for that manager, including:
+
 * Cost
 * Gameweek
 * Time of transfer
@@ -120,6 +127,7 @@ Using this set of endpoints, you can retrieve information on any individual FPL 
 **Full URL**: https://fantasy.premierleague.com/api/entry/{team-id}/event/{GW}/picks/
 
 **Data included**: Shows the detail of your 15 players for any given gameweek. the ‘Event’ parameter in the URL is the gameweek number. This includes the general info for the gameweek, such as:
+
 * Points
 * Total points
 * Rank
@@ -136,6 +144,7 @@ Using this set of endpoints, you can retrieve information on any individual FPL 
 **Full URL**: https://fantasy.premierleague.com/api/entry/{team-id}/history/
 
 **Data included**: This shows a high level stats for each gameweek gone by, plus the manager’s overall career performance form previous seasons, gameweek-by-gameweek data, including:
+
 * Points
 * Rank
 * Overall rank
@@ -157,6 +166,7 @@ This endpoint breaks down the managers within a league, showing their relative r
 **Full URL**: https://fantasy.premierleague.com/api/leagues-classic/{league-id}/standings/
 
 **Data included**:
+
 * League name
 * Date created
 * Admin ID
@@ -183,6 +193,7 @@ Shows the current standings of a head-2-head league.
 **Full URL**: https://fantasy.premierleague.com/api/leagues-h2h-matches/league/{league-ID}/
 
 **Data included**:
+
 * New entries
 * Last updated data
 * League:

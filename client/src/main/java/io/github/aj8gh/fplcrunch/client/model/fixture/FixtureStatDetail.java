@@ -4,8 +4,8 @@ import lombok.Builder;
 
 @Builder(toBuilder = true)
 public record FixtureStatDetail(
-    int value,
-    int element
+    Integer value,
+    Integer element
 ) {
 
 }

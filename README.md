@@ -1,6 +1,7 @@
 # REST API to retrieve and manipulate data from the official Fantasy Premier League API
 
-## Tech 
+## Tech
+
 * Java 21
 * Quarkus
 

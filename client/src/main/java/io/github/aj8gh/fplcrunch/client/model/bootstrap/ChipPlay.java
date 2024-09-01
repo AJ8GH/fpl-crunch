@@ -5,7 +5,7 @@ import lombok.Builder;
 @Builder(toBuilder = true)
 public record ChipPlay(
     String chipName,
-    int numPlayed
+    Integer numPlayed
 ) {
 
 }

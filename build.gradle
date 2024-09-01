@@ -1,9 +1,9 @@
 plugins {
-    id 'java'
-    id 'jacoco-report-aggregation'
-    id 'jacoco'
-    id 'checkstyle'
-    id 'io.quarkus'
+  id 'java'
+  id 'jacoco-report-aggregation'
+  id 'jacoco'
+  id 'checkstyle'
+  id 'io.quarkus'
 }
 
 apply from: jacocoBuildScript
@@ -11,9 +11,9 @@ apply from: allProjectsBuildScript
 apply from: subProjectsBuildScript
 
 dependencies {
-    implementation project(apiModule)
-    implementation project(applicationModule)
-    implementation project(clientModule)
-    implementation project(persistenceModule)
-    implementation project(serviceModule)
+  implementation project(apiModule)
+  implementation project(applicationModule)
+  implementation project(clientModule)
+  implementation project(persistenceModule)
+  implementation project(serviceModule)
 }

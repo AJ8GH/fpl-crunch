@@ -7,7 +7,7 @@ import lombok.Builder;
 public record ElementSummary(
     List<ElementFixture> fixtures,
     List<ElementHistory> history,
-    List<ElementHistoryPast>historyPast
+    List<ElementHistoryPast> historyPast
 ) {
 
 }

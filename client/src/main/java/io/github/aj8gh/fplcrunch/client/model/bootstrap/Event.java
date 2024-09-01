@@ -1,35 +1,36 @@
 package io.github.aj8gh.fplcrunch.client.model.bootstrap;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import java.time.Instant;
 import java.util.List;
 import lombok.Builder;
 
 @Builder(toBuilder = true)
 public record Event(
-    int id,
+    Integer id,
     String name,
     Instant deadlineTime,
-    int averageEntryScore,
-    boolean finished,
-    boolean dataChecked,
-    int highestScoringEntry,
-    int deadlineTimeEpoch,
-    int deadlineTimeGameOffset,
-    int highestScore,
-    boolean isPrevious,
-    boolean isCurrent,
-    boolean isNext,
-    boolean cupLeaguesCreated,
-    boolean h2HKoMatchesCreated,
-    int rankedCount,
+    Integer averageEntryScore,
+    Boolean finished,
+    Boolean dataChecked,
+    Integer highestScoringEntry,
+    Integer deadlineTimeEpoch,
+    Integer deadlineTimeGameOffset,
+    Integer highestScore,
+    Boolean isPrevious,
+    Boolean isCurrent,
+    Boolean isNext,
+    Boolean cupLeaguesCreated,
+    @JsonAlias("h2HKoMatchesCreated") Boolean headToHeadKoMatchesCreated,
+    Integer rankedCount,
     List<ChipPlay> chipPlays,
-    int mostSelected,
-    int mostTransferredIn,
-    int topElement,
+    Integer mostSelected,
+    Integer mostTransferredIn,
+    Integer topElement,
     TopElementInfo topElementInfo,
-    int transfersMade,
-    int mostCaptained,
-    int mostViceCaptained
+    Integer transfersMade,
+    Integer mostCaptained,
+    Integer mostViceCaptained
 ) {
 
 }

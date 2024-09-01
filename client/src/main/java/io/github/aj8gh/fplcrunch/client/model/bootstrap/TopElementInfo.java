@@ -4,8 +4,8 @@ import lombok.Builder;
 
 @Builder(toBuilder = true)
 public record TopElementInfo(
-    int id,
-    int points
+    Integer id,
+    Integer points
 ) {
 
 }

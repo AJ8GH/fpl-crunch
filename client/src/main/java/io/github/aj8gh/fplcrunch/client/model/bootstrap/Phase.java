@@ -4,10 +4,10 @@ import lombok.Builder;
 
 @Builder(toBuilder = true)
 public record Phase(
-    int id,
+    Integer id,
     String name,
-    int startEvent,
-    int stopEvent
+    Integer startEvent,
+    Integer stopEvent
 ) {
 
 }

@@ -9,6 +9,10 @@ tasks.named('check') {
   dependsOn tasks.named('testCodeCoverageReport', JacocoReport)
 }
 
+tasks.named('testCodeCoverageReport') {
+  dependsOn tasks.named('compileQuarkusGeneratedSourcesJava')
+}
+
 testCodeCoverageReport {
   afterEvaluate {
     classDirectories.setFrom(files(classDirectories.files.collect {

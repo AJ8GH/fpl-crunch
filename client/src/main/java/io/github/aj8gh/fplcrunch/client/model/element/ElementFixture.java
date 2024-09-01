@@ -1,24 +1,25 @@
 package io.github.aj8gh.fplcrunch.client.model.element;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import java.time.Instant;
 import lombok.Builder;
 
 @Builder(toBuilder = true)
 public record ElementFixture(
-    int id,
-    int code,
-    int teamH,
-    Integer teamHScore,
-    int teamA,
-    Integer teamAScore,
-    int event,
-    boolean finished,
-    int minutes,
-    boolean provisionalStartTime,
+    Integer id,
+    Integer code,
+    @JsonAlias("teamH") Integer teamHome,
+    @JsonAlias("teamHScore") Integer teamHomeScore,
+    @JsonAlias("teamA") Integer teamAway,
+    @JsonAlias("teamAScore") Integer teamAwayScore,
+    Integer event,
+    Boolean finished,
+    Integer minutes,
+    Boolean provisionalStartTime,
     Instant kickoffTime,
     String eventName,
-    boolean isHome,
-    int difficulty
+    Boolean isHome,
+    Integer difficulty
 ) {
 
 }

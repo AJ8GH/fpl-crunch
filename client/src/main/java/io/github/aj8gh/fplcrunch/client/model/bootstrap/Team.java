@@ -4,26 +4,26 @@ import lombok.Builder;
 
 @Builder(toBuilder = true)
 public record Team(
-    int code,
-    int draw,
+    Integer code,
+    Integer draw,
     Integer form,
-    int id,
-    int loss,
+    Integer id,
+    Integer loss,
     String name,
-    int played,
-    int points,
-    int position,
+    Integer played,
+    Integer points,
+    Integer position,
     String shortName,
-    int strength,
+    Integer strength,
     Boolean unavailable,
-    int win,
-    int strengthOverallHome,
-    int strengthOverallAway,
-    int strengthAttackHome,
-    int strengthAttackAway,
-    int strengthDefenceHome,
-    int strengthDefenceAway,
-    int pulseId
+    Integer win,
+    Integer strengthOverallHome,
+    Integer strengthOverallAway,
+    Integer strengthAttackHome,
+    Integer strengthAttackAway,
+    Integer strengthDefenceHome,
+    Integer strengthDefenceAway,
+    Integer pulseId
 ) {
 
 }

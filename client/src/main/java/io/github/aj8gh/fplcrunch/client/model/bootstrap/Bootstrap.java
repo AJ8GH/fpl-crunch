@@ -9,7 +9,7 @@ public record Bootstrap(
     GameSettings gameSettings,
     List<Phase> phases,
     List<Team> teams,
-    int totalPlayers,
+    Integer totalPlayers,
     List<Element> elements,
     List<ElementStat> elementStats,
     List<ElementType> elementTypes

@@ -20,6 +20,10 @@ allprojects {
     targetCompatibility = javaVersion
   }
 
+  dependencies {
+    implementation enforcedPlatform("$quarkusPlatformGroupId:$quarkusPlatformArtifactId:$quarkusVersion")
+  }
+
   test {
     systemProperty "java.util.logging.manager", "org.jboss.logmanager.LogManager"
   }

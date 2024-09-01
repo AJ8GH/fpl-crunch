@@ -1,36 +1,37 @@
 package io.github.aj8gh.fplcrunch.client.model.bootstrap;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import java.time.ZoneId;
 import java.util.List;
 import lombok.Builder;
 
 @Builder(toBuilder = true)
 public record GameSettings(
-    int leagueJoinPrivateMax,
-    int leagueJoinPublicMax,
-    int leagueMaxSizePublicClassic,
-    int leagueMaxSizePublicH2H,
-    int leagueMaxSizePrivateH2H,
-    int leagueMaxKoRoundsPrivateH2H,
+    Integer leagueJoinPrivateMax,
+    Integer leagueJoinPublicMax,
+    Integer leagueMaxSizePublicClassic,
+    @JsonAlias("leagueMaxSizePublicH2H") Integer leagueMaxSizePublicHeadToHead,
+    @JsonAlias("leagueMaxSizePrivateH2H") Integer leagueMaxSizePrivateHeadToHead,
+    @JsonAlias("leagueMaxKoRoundsPrivateH2H") Integer leagueMaxKoRoundsPrivateHeadToHead,
     String leaguePrefixPublic,
-    int leaguePointsH2HWin,
-    int leaguePointsH2HLose,
-    int leaguePointsH2HDraw,
-    boolean leagueKoFirstInsteadOfRandom,
+    @JsonAlias("leaguePointsH2HWin") Integer leaguePointsHeadToHeadWin,
+    @JsonAlias("leaguePointsH2HLose") Integer leaguePointsHeadToHeadLose,
+    @JsonAlias("leaguePointsH2HDraw") Integer leaguePointsHeadToHeadDraw,
+    Boolean leagueKoFirstInsteadOfRandom,
     List<Integer> featuredEntries,
     List<Integer> percentileRanks,
-    int squadSquadplay,
-    int squadSquadsize,
-    int squadTeamLimit,
-    int squadTotalSpend,
-    int uiCurrencyMultiplier,
-    boolean uiUseSpecialShirts,
+    Integer squadSquadplay,
+    Integer squadSquadsize,
+    Integer squadTeamLimit,
+    Integer squadTotalSpend,
+    Integer uiCurrencyMultiplier,
+    Boolean uiUseSpecialShirts,
     List<String> uiSpecialShirtExclusions,
-    int statsFormDays,
-    boolean sysViceCaptainEnabled,
-    int transfersCap,
-    int transfersSellOnFee,
-    List<String> leagueH2HTiebreakStats,
+    Integer statsFormDays,
+    Boolean sysViceCaptainEnabled,
+    Integer transfersCap,
+    Integer transfersSellOnFee,
+    @JsonAlias("leagueH2HTiebreakStats") List<String> leagueHeadToHeadTiebreakStats,
     ZoneId timezone
 ) {
 
