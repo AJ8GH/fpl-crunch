@@ -1,6 +1,8 @@
-package io.github.aj8gh.fplcrunch.client.model.entry;
+package io.github.aj8gh.fplcrunch.client.model.entry.league;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.github.aj8gh.fplcrunch.client.model.entry.cup.Cup;
+import io.github.aj8gh.fplcrunch.client.model.entry.cup.CupMatch;
 import java.util.List;
 import lombok.Builder;
 

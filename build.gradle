@@ -4,6 +4,7 @@ plugins {
   id 'jacoco'
   id 'checkstyle'
   id 'io.quarkus'
+  id 'org.kordamp.gradle.jandex'
 }
 
 apply from: jacocoBuildScript
@@ -12,8 +13,6 @@ apply from: subProjectsBuildScript
 
 dependencies {
   implementation project(apiModule)
-  implementation project(applicationModule)
   implementation project(clientModule)
-  implementation project(persistenceModule)
   implementation project(serviceModule)
 }

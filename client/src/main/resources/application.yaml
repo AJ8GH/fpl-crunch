@@ -1,0 +1,4 @@
+quarkus:
+  rest-client:
+    io.github.aj8gh.fplcrunch.client.FplClient:
+      url: https://fantasy.premierleague.com

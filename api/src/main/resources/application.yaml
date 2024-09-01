@@ -1,8 +1,0 @@
-fpl:
-  api:
-    base-uri: https://fantasy.premierleague.com
-
-quarkus:
-  rest-client:
-    io.github.aj8gh.fplcrunch.client.FplClient:
-      url: ${fpl.api.base-uri}

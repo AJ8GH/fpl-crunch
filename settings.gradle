@@ -1,13 +1,12 @@
 pluginManagement {
   plugins {
     id 'io.quarkus' version quarkusVersion
+    id 'org.kordamp.gradle.jandex' version jandexVersion
   }
 }
 
 rootProject.name = 'fpl-crunch'
 
 include 'api'
-include 'application'
 include 'client'
-include 'persistence'
 include 'service'

@@ -1,4 +1,4 @@
-package io.github.aj8gh.fplcrunch.client.model.entry;
+package io.github.aj8gh.fplcrunch.client.model.entry.league;
 
 public record ActivePhase(
     Integer phase,
