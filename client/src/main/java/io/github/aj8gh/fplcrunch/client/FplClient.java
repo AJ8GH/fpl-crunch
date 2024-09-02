@@ -9,7 +9,7 @@ import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
 
 import io.github.aj8gh.fplcrunch.client.model.bootstrap.Bootstrap;
 import io.github.aj8gh.fplcrunch.client.model.element.ElementSummary;
-import io.github.aj8gh.fplcrunch.client.model.entry.Entry;
+import io.github.aj8gh.fplcrunch.client.model.entry.summary.Entry;
 import io.github.aj8gh.fplcrunch.client.model.fixture.Fixture;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;

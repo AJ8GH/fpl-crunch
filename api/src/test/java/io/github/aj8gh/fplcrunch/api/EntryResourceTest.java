@@ -10,7 +10,7 @@ import static org.jboss.resteasy.reactive.RestResponse.StatusCode.OK;
 import io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions;
 import io.github.aj8gh.fplcrunch.api.util.Loader;
 import io.github.aj8gh.fplcrunch.client.ClientPath;
-import io.github.aj8gh.fplcrunch.client.model.entry.Entry;
+import io.github.aj8gh.fplcrunch.client.model.entry.summary.Entry;
 import io.quarkus.test.common.WithTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import lombok.SneakyThrows;

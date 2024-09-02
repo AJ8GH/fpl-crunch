@@ -1,6 +1,6 @@
-package io.github.aj8gh.fplcrunch.client.model.entry;
+package io.github.aj8gh.fplcrunch.client.model.entry.summary;
 
-import io.github.aj8gh.fplcrunch.client.model.entry.league.Leagues;
+import io.github.aj8gh.fplcrunch.client.model.entry.summary.league.Leagues;
 import java.time.Instant;
 import java.util.List;
 import lombok.Builder;

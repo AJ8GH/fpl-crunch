@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import io.github.aj8gh.fplcrunch.client.model.bootstrap.Bootstrap;
 import io.github.aj8gh.fplcrunch.client.model.element.ElementSummary;
-import io.github.aj8gh.fplcrunch.client.model.entry.Entry;
+import io.github.aj8gh.fplcrunch.client.model.entry.summary.Entry;
 import io.github.aj8gh.fplcrunch.client.model.fixture.Fixture;
 import java.util.List;
 import lombok.SneakyThrows;

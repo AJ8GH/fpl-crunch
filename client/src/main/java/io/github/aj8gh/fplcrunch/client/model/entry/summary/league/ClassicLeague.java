@@ -1,4 +1,4 @@
-package io.github.aj8gh.fplcrunch.client.model.entry.league;
+package io.github.aj8gh.fplcrunch.client.model.entry.summary.league;
 
 import java.time.Instant;
 import java.util.List;

@@ -1,4 +1,4 @@
-package io.github.aj8gh.fplcrunch.client.model.entry.cup;
+package io.github.aj8gh.fplcrunch.client.model.entry.summary.cup;
 
 import java.util.List;
 import lombok.Builder;
