@@ -4,7 +4,7 @@ import java.util.List;
 import lombok.Builder;
 
 @Builder(toBuilder = true)
-public record Event(
+public record EventLive(
     List<EventElement> elements
 ) {
 

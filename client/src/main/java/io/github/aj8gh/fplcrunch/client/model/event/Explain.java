@@ -5,8 +5,8 @@ import lombok.Builder;
 
 @Builder(toBuilder = true)
 public record Explain(
-  Integer fixture,
-  List<ExplainStat> stats
+    Integer fixture,
+    List<ExplainStat> stats
 ) {
 
 }

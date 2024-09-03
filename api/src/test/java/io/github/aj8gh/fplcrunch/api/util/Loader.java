@@ -8,8 +8,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import io.github.aj8gh.fplcrunch.client.model.bootstrap.Bootstrap;
 import io.github.aj8gh.fplcrunch.client.model.element.ElementSummary;
+import io.github.aj8gh.fplcrunch.client.model.entry.history.EntryHistory;
+import io.github.aj8gh.fplcrunch.client.model.entry.pick.EntryPicks;
 import io.github.aj8gh.fplcrunch.client.model.entry.summary.Entry;
+import io.github.aj8gh.fplcrunch.client.model.entry.transfer.EntryTransfer;
+import io.github.aj8gh.fplcrunch.client.model.event.EventLive;
 import io.github.aj8gh.fplcrunch.client.model.fixture.Fixture;
+import io.github.aj8gh.fplcrunch.client.model.league.classic.ClassicLeagueStandings;
 import java.util.List;
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
@@ -22,14 +27,15 @@ public class Loader {
       .configure(WRITE_DATES_AS_TIMESTAMPS, false)
       .configure(FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-  private static final String ENTRY_JSON = "entry.json";
   private static final String BOOTSTRAP_JSON = "bootstrap-static.json";
   private static final String ELEMENT_SUMMARY_JSON = "element-summary.json";
+  private static final String ENTRY_JSON = "entry.json";
+  private static final String ENTRY_HISTORY_JSON = "entry-history.json";
+  private static final String ENTRY_PICKS_JSON = "entry-picks.json";
+  private static final String ENTRY_TRANSFERS_JSON = "entry-transfers.json";
+  private static final String EVENT_LIVE_JSON = "event-live.json";
   private static final String FIXTURES_JSON = "fixtures.json";
-
-  public static Entry entry() {
-    return load(ENTRY_JSON, Entry.class);
-  }
+  private static final String LEAGUES_CLASSIC_STANDINGS_JSON = "leagues-classic-standings.json";
 
   public static Bootstrap bootstrapStatic() {
     return load(BOOTSTRAP_JSON, Bootstrap.class);
@@ -39,9 +45,34 @@ public class Loader {
     return load(ELEMENT_SUMMARY_JSON, ElementSummary.class);
   }
 
+  public static Entry entry() {
+    return load(ENTRY_JSON, Entry.class);
+  }
+
+  public static EntryHistory entryHistory() {
+    return load(ENTRY_HISTORY_JSON, EntryHistory.class);
+  }
+
+  public static EntryPicks entryPicks() {
+    return load(ENTRY_PICKS_JSON, EntryPicks.class);
+  }
+
+  public static List<EntryTransfer> entryTransfers() {
+    return load(ENTRY_TRANSFERS_JSON, new TypeReference<>() {
+    });
+  }
+
+  public static EventLive eventLive() {
+    return load(EVENT_LIVE_JSON, EventLive.class);
+  }
+
   public List<Fixture> fixtures() {
     return load(FIXTURES_JSON, new TypeReference<>() {
     });
+  }
+
+  public static ClassicLeagueStandings classicLeagueStandings() {
+    return load(LEAGUES_CLASSIC_STANDINGS_JSON, ClassicLeagueStandings.class);
   }
 
   @SneakyThrows

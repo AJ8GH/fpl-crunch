@@ -15,8 +15,10 @@ import lombok.SneakyThrows;
 public class WireMockExtensions implements QuarkusTestResourceLifecycleManager {
 
   public static final int ID = 99;
+  public static final int GW = 3;
 
   private static final String ID_PLACEHOLDER = "{id}";
+  private static final String GW_PLACEHOLDER = "{gw}";
   private static final int WIREMOCK_PORT = 8888;
   private static final String TEST_URL_PROPERTY = """
       quarkus.rest-client\
@@ -38,8 +40,9 @@ public class WireMockExtensions implements QuarkusTestResourceLifecycleManager {
 
   @SneakyThrows
   public static void stubHappyPath(String path, Object body) {
-    WIRE_MOCK
-        .stubFor(get(urlEqualTo(BASE + path.replace(ID_PLACEHOLDER, valueOf(ID))))
-            .willReturn(okJson(MAPPER.writeValueAsString(body))));
+    WIRE_MOCK.stubFor(get(urlEqualTo(BASE + path
+        .replace(ID_PLACEHOLDER, valueOf(ID))
+        .replace(GW_PLACEHOLDER, valueOf(GW))))
+        .willReturn(okJson(MAPPER.writeValueAsString(body))));
   }
 }
