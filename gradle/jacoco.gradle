@@ -2,6 +2,7 @@ apply plugin: 'jacoco-report-aggregation'
 
 def static jacocoExcludes() {
   return [
+      '**/model/*'
   ]
 }
 
