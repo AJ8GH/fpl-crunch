@@ -5,6 +5,9 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class ApiPath {
 
+  public static final String ACCOUNTS_BASE = "/accounts";
+  public static final String LOGIN = "/login";
+  public static final String LOGIN_DEFAULT = "/login/default";
   public static final String BOOTSTRAP = "/bootstrap";
   public static final String ELEMENT_SUMMARY = "/element-summary/{id}";
   public static final String ENTRY = "/entry/{id}";

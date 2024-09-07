@@ -5,7 +5,10 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class ClientPath {
 
-  public static final String BASE = "/api";
+  public static final String ACCOUNTS_BASE = "/accounts";
+  public static final String LOGIN = "/login/";
+
+  public static final String API_BASE = "/api";
   public static final String BOOTSTRAP_STATIC = "/bootstrap-static/";
   public static final String ELEMENT_SUMMARY = "/element-summary/{id}/";
   public static final String ENTRY = "/entry/{id}/";

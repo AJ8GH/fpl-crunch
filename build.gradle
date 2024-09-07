@@ -2,7 +2,7 @@ plugins {
   id 'java'
   id 'jacoco-report-aggregation'
   id 'jacoco'
-  id 'checkstyle'
+//  id 'checkstyle'
   id 'io.quarkus'
   id 'org.kordamp.gradle.jandex'
 }

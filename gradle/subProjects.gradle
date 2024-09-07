@@ -6,6 +6,7 @@ subprojects {
     implementation 'io.quarkus:quarkus-rest-client-jsonb'
     implementation 'io.quarkus:quarkus-config-yaml'
     implementation 'com.fasterxml.jackson.core:jackson-annotations'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
 
     // General
     compileOnly "org.projectlombok:lombok:$lombokVersion"

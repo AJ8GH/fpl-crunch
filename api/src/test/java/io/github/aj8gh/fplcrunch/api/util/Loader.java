@@ -6,15 +6,15 @@ import static com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import io.github.aj8gh.fplcrunch.client.model.bootstrap.Bootstrap;
-import io.github.aj8gh.fplcrunch.client.model.element.ElementSummary;
-import io.github.aj8gh.fplcrunch.client.model.entry.history.EntryHistory;
-import io.github.aj8gh.fplcrunch.client.model.entry.pick.EntryPicks;
-import io.github.aj8gh.fplcrunch.client.model.entry.summary.Entry;
-import io.github.aj8gh.fplcrunch.client.model.entry.transfer.EntryTransfer;
-import io.github.aj8gh.fplcrunch.client.model.event.EventLive;
-import io.github.aj8gh.fplcrunch.client.model.fixture.Fixture;
-import io.github.aj8gh.fplcrunch.client.model.league.classic.ClassicLeagueStandings;
+import io.github.aj8gh.fplcrunch.client.model.response.bootstrap.Bootstrap;
+import io.github.aj8gh.fplcrunch.client.model.response.element.ElementSummary;
+import io.github.aj8gh.fplcrunch.client.model.response.entry.history.EntryHistory;
+import io.github.aj8gh.fplcrunch.client.model.response.entry.pick.EntryPicks;
+import io.github.aj8gh.fplcrunch.client.model.response.entry.summary.Entry;
+import io.github.aj8gh.fplcrunch.client.model.response.entry.transfer.EntryTransfer;
+import io.github.aj8gh.fplcrunch.client.model.response.event.EventLive;
+import io.github.aj8gh.fplcrunch.client.model.response.fixture.Fixture;
+import io.github.aj8gh.fplcrunch.client.model.response.league.classic.ClassicLeagueStandings;
 import java.util.List;
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
@@ -27,6 +27,7 @@ public class Loader {
       .configure(WRITE_DATES_AS_TIMESTAMPS, false)
       .configure(FAIL_ON_UNKNOWN_PROPERTIES, false);
 
+  private static final String RESPONSES = "responses/";
   private static final String BOOTSTRAP_JSON = "bootstrap-static.json";
   private static final String ELEMENT_SUMMARY_JSON = "element-summary.json";
   private static final String ENTRY_JSON = "entry.json";
@@ -88,14 +89,14 @@ public class Loader {
   @SneakyThrows
   private static <T> T load(String file, Class<T> type) {
     return MAPPER.readValue(
-        Loader.class.getClassLoader().getResourceAsStream(file),
+        Loader.class.getClassLoader().getResourceAsStream(RESPONSES + file),
         type);
   }
 
   @SneakyThrows
   private static <T> T load(String file, TypeReference<T> type) {
     return MAPPER.readValue(
-        Loader.class.getClassLoader().getResourceAsStream(file),
+        Loader.class.getClassLoader().getResourceAsStream(RESPONSES + file),
         type);
   }
 }

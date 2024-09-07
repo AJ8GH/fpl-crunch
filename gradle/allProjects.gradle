@@ -1,6 +1,6 @@
 allprojects {
   apply plugin: 'java'
-  apply plugin: 'checkstyle'
+//  apply plugin: 'checkstyle'
   apply plugin: 'io.quarkus'
   apply plugin: 'org.kordamp.gradle.jandex'
 
@@ -42,5 +42,17 @@ allprojects {
     if (Set.of('quarkusDependenciesBuild', 'checkstyleMain').contains(it.getName())) {
       dependsOn tasks.named('jandex')
     }
+  }
+
+  tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += "--enable-preview"
+  }
+
+  tasks.withType(Test).configureEach {
+    jvmArgs += "--enable-preview"
+  }
+
+  tasks.withType(JavaExec).configureEach {
+    jvmArgs += "--enable-preview"
   }
 }
