@@ -55,8 +55,4 @@ allprojects {
   tasks.withType(JavaExec).configureEach {
     jvmArgs += "--enable-preview"
   }
-
-  checkstyle {
-    toolVersion = "10.18.1"
-  }
 }
