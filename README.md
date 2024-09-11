@@ -4,7 +4,7 @@
 
 ## Tech
 
-* Java 21
+* Java 22
 * Quarkus
 
 ## Build locally

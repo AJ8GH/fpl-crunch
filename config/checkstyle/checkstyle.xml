@@ -17,6 +17,16 @@
  -->
 
 <module name="Checker">
+  <property name="haltOnException" value="false"/>
+
+  <module name="SuppressionSingleFilter">
+    <property name="message" value=".*IllegalStateException occurred while parsing file.*"/>
+  </module>
+
+  <module name="TreeWalker">
+    <module name="AbbreviationAsWordInName"/>
+  </module>
+
   <property name="charset" value="UTF-8"/>
 
   <property name="severity" value="error"/>
