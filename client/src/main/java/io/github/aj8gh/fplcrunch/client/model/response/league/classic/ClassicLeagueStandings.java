@@ -8,7 +8,7 @@ import lombok.Builder;
 public record ClassicLeagueStandings(
     NewEntries newEntries,
     @JsonAlias("lastUpdatedData") Instant lastUpdatedDate,
-    ClassicLeagueStandingsLeague classicLeague,
+    ClassicLeagueStandingsLeague league,
     Standings standings
 ) {
 
