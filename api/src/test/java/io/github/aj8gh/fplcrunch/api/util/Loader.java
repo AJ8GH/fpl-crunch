@@ -16,6 +16,7 @@ import io.github.aj8gh.fplcrunch.client.model.response.event.EventLive;
 import io.github.aj8gh.fplcrunch.client.model.response.fixture.Fixture;
 import io.github.aj8gh.fplcrunch.client.model.response.league.classic.ClassicLeagueStandings;
 import io.github.aj8gh.fplcrunch.client.model.response.me.FplPlayer;
+import io.github.aj8gh.fplcrunch.client.model.response.myteam.FplTeam;
 import java.util.List;
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
@@ -82,6 +83,10 @@ public class Loader {
 
   public static FplPlayer fplPlayer() {
     return load(ME_JSON, FplPlayer.class);
+  }
+
+  public static FplTeam fplTeam() {
+    return load(MY_TEAM_JSON, FplTeam.class);
   }
 
   @SneakyThrows

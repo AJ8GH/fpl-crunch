@@ -11,6 +11,7 @@ import static io.github.aj8gh.fplcrunch.client.ClientPath.EVENT_LIVE;
 import static io.github.aj8gh.fplcrunch.client.ClientPath.FIXTURES;
 import static io.github.aj8gh.fplcrunch.client.ClientPath.LEAGUES_CLASSIC_STANDINGS;
 import static io.github.aj8gh.fplcrunch.client.ClientPath.ME;
+import static io.github.aj8gh.fplcrunch.client.ClientPath.MY_TEAM;
 import static io.github.aj8gh.fplcrunch.client.Cookies.PL_PROFILE;
 import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
 
@@ -24,6 +25,7 @@ import io.github.aj8gh.fplcrunch.client.model.response.event.EventLive;
 import io.github.aj8gh.fplcrunch.client.model.response.fixture.Fixture;
 import io.github.aj8gh.fplcrunch.client.model.response.league.classic.ClassicLeagueStandings;
 import io.github.aj8gh.fplcrunch.client.model.response.me.FplPlayer;
+import io.github.aj8gh.fplcrunch.client.model.response.myteam.FplTeam;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.CookieParam;
 import jakarta.ws.rs.GET;
@@ -75,4 +77,8 @@ public interface FplApiClient {
   @GET
   @Path(ME)
   FplPlayer me(@CookieParam(PL_PROFILE) String token);
+
+  @GET
+  @Path(MY_TEAM)
+  FplTeam myTeam(@CookieParam(PL_PROFILE) String token, int id);
 }

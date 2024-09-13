@@ -11,9 +11,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Path(ME)
 @RequiredArgsConstructor
 public class PlayerResource extends AbstractResource {
