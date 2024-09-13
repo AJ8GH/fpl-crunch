@@ -1,11 +1,14 @@
 package io.github.aj8gh.fplcrunch.client.model.response.entry.summary;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import io.github.aj8gh.fplcrunch.client.model.response.entry.summary.league.Leagues;
 import java.time.Instant;
 import java.util.List;
 import lombok.Builder;
 
 @Builder(toBuilder = true)
+@JsonNaming(SnakeCaseStrategy.class)
 public record Entry(
     Integer id,
     Instant joinedTime,

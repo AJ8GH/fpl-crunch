@@ -8,9 +8,9 @@ import static org.jboss.resteasy.reactive.RestResponse.StatusCode.OK;
 
 import io.github.aj8gh.fplcrunch.api.ApiPath;
 import io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions;
+import io.github.aj8gh.fplcrunch.api.model.response.element.ElementSummaryResponse;
 import io.github.aj8gh.fplcrunch.api.util.Loader;
 import io.github.aj8gh.fplcrunch.client.ClientPath;
-import io.github.aj8gh.fplcrunch.client.model.response.element.ElementSummary;
 import io.quarkus.test.common.WithTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import lombok.SneakyThrows;
@@ -23,7 +23,7 @@ class ElementResourceTest {
   @Test
   @SneakyThrows
   void getElementSummary() {
-    stubHappyPath(ClientPath.ELEMENT_SUMMARY, Loader.elementSummary());
+    stubHappyPath(ClientPath.ELEMENT_SUMMARY);
 
     assertThat(when()
         .get(ApiPath.ELEMENT_SUMMARY, ID)
@@ -31,7 +31,8 @@ class ElementResourceTest {
         .statusCode(OK)
         .extract()
         .response()
-        .as(ElementSummary.class))
+        .as(ElementSummaryResponse.class))
+        .usingRecursiveComparison()
         .isEqualTo(Loader.elementSummary());
   }
 }

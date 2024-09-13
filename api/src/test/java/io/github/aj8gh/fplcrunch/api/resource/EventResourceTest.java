@@ -8,9 +8,9 @@ import static org.jboss.resteasy.reactive.RestResponse.StatusCode.OK;
 
 import io.github.aj8gh.fplcrunch.api.ApiPath;
 import io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions;
+import io.github.aj8gh.fplcrunch.api.model.response.event.EventLiveResponse;
 import io.github.aj8gh.fplcrunch.api.util.Loader;
 import io.github.aj8gh.fplcrunch.client.ClientPath;
-import io.github.aj8gh.fplcrunch.client.model.response.event.EventLive;
 import io.quarkus.test.common.WithTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import lombok.SneakyThrows;
@@ -23,7 +23,7 @@ class EventResourceTest {
   @Test
   @SneakyThrows
   void getEventLive() {
-    stubHappyPath(ClientPath.EVENT_LIVE, Loader.eventLive());
+    stubHappyPath(ClientPath.EVENT_LIVE);
 
     assertThat(when()
         .get(ApiPath.EVENT_LIVE, GW)
@@ -31,7 +31,8 @@ class EventResourceTest {
         .statusCode(OK)
         .extract()
         .response()
-        .as(EventLive.class))
+        .as(EventLiveResponse.class))
+        .usingRecursiveComparison()
         .isEqualTo(Loader.eventLive());
   }
 }

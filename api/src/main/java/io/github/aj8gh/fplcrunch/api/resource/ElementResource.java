@@ -1,18 +1,24 @@
 package io.github.aj8gh.fplcrunch.api.resource;
 
-import io.github.aj8gh.fplcrunch.api.ApiPath;
+import static io.github.aj8gh.fplcrunch.api.ApiPath.ELEMENT_SUMMARY;
+import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
+
+import io.github.aj8gh.fplcrunch.api.mapper.ElementSummaryMapper;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import lombok.RequiredArgsConstructor;
 
-@Path(ApiPath.ELEMENT_SUMMARY)
+@Path(ELEMENT_SUMMARY)
+@RequiredArgsConstructor
 public class ElementResource extends AbstractResource {
 
+  private final ElementSummaryMapper mapper;
+
   @GET
-  @Produces(MediaType.APPLICATION_JSON)
+  @Produces(APPLICATION_JSON)
   public Response get(int id) {
-    return ok(client.elementSummary(id));
+    return ok(mapper.map(client.elementSummary(id)));
   }
 }

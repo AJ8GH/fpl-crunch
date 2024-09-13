@@ -8,9 +8,9 @@ import static org.jboss.resteasy.reactive.RestResponse.StatusCode.OK;
 
 import io.github.aj8gh.fplcrunch.api.ApiPath;
 import io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions;
+import io.github.aj8gh.fplcrunch.api.model.response.entry.history.EntryHistoryResponse;
 import io.github.aj8gh.fplcrunch.api.util.Loader;
 import io.github.aj8gh.fplcrunch.client.ClientPath;
-import io.github.aj8gh.fplcrunch.client.model.response.entry.history.EntryHistory;
 import io.quarkus.test.common.WithTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import lombok.SneakyThrows;
@@ -23,7 +23,7 @@ class EntryHistoryResourceTest {
   @Test
   @SneakyThrows
   void getEntryHistory() {
-    stubHappyPath(ClientPath.ENTRY_HISTORY, Loader.entryHistory());
+    stubHappyPath(ClientPath.ENTRY_HISTORY);
 
     assertThat(when()
         .get(ApiPath.ENTRY_HISTORY, ID)
@@ -31,7 +31,8 @@ class EntryHistoryResourceTest {
         .statusCode(OK)
         .extract()
         .response()
-        .as(EntryHistory.class))
+        .as(EntryHistoryResponse.class))
+        .usingRecursiveComparison()
         .isEqualTo(Loader.entryHistory());
   }
 }

@@ -9,9 +9,9 @@ import static org.jboss.resteasy.reactive.RestResponse.StatusCode.OK;
 
 import io.github.aj8gh.fplcrunch.api.ApiPath;
 import io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions;
+import io.github.aj8gh.fplcrunch.api.model.response.entry.pick.EntryPicksResponse;
 import io.github.aj8gh.fplcrunch.api.util.Loader;
 import io.github.aj8gh.fplcrunch.client.ClientPath;
-import io.github.aj8gh.fplcrunch.client.model.response.entry.pick.EntryPicks;
 import io.quarkus.test.common.WithTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import lombok.SneakyThrows;
@@ -24,7 +24,7 @@ class EntryPickResourceTest {
   @Test
   @SneakyThrows
   void getEntryPicks() {
-    stubHappyPath(ClientPath.ENTRY_PICKS, Loader.entryPicks());
+    stubHappyPath(ClientPath.ENTRY_PICKS);
 
     assertThat(when()
         .get(ApiPath.ENTRY_PICKS, ID, GW)
@@ -32,7 +32,8 @@ class EntryPickResourceTest {
         .statusCode(OK)
         .extract()
         .response()
-        .as(EntryPicks.class))
+        .as(EntryPicksResponse.class))
+        .usingRecursiveComparison()
         .isEqualTo(Loader.entryPicks());
   }
 }

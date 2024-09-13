@@ -32,6 +32,9 @@ allprojects {
   compileJava {
     options.encoding = 'UTF-8'
     options.compilerArgs << '-parameters'
+    options.compilerArgs += [
+        '-Amapstruct.defaultComponentModel=cdi'
+    ]
   }
 
   compileTestJava {

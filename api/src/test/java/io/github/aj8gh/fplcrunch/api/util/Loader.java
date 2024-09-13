@@ -15,6 +15,7 @@ import io.github.aj8gh.fplcrunch.client.model.response.entry.transfer.EntryTrans
 import io.github.aj8gh.fplcrunch.client.model.response.event.EventLive;
 import io.github.aj8gh.fplcrunch.client.model.response.fixture.Fixture;
 import io.github.aj8gh.fplcrunch.client.model.response.league.classic.ClassicLeagueStandings;
+import io.github.aj8gh.fplcrunch.client.model.response.me.FplPlayer;
 import java.util.List;
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
@@ -27,16 +28,19 @@ public class Loader {
       .configure(WRITE_DATES_AS_TIMESTAMPS, false)
       .configure(FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-  private static final String RESPONSES = "responses/";
-  private static final String BOOTSTRAP_JSON = "bootstrap-static.json";
-  private static final String ELEMENT_SUMMARY_JSON = "element-summary.json";
-  private static final String ENTRY_JSON = "entry.json";
-  private static final String ENTRY_HISTORY_JSON = "entry-history.json";
-  private static final String ENTRY_PICKS_JSON = "entry-picks.json";
-  private static final String ENTRY_TRANSFERS_JSON = "entry-transfers.json";
-  private static final String EVENT_LIVE_JSON = "event-live.json";
-  private static final String FIXTURES_JSON = "fixtures.json";
-  private static final String LEAGUES_CLASSIC_STANDINGS_JSON = "leagues-classic-standings.json";
+  public static final String FILES = "__files/";
+  public static final String RESPONSES = "responses/";
+  public static final String BOOTSTRAP_JSON = "bootstrap-static.json";
+  public static final String ELEMENT_SUMMARY_JSON = "element-summary.json";
+  public static final String ENTRY_JSON = "entry.json";
+  public static final String ENTRY_HISTORY_JSON = "entry-history.json";
+  public static final String ENTRY_PICKS_JSON = "entry-picks.json";
+  public static final String ENTRY_TRANSFERS_JSON = "entry-transfers.json";
+  public static final String EVENT_LIVE_JSON = "event-live.json";
+  public static final String FIXTURES_JSON = "fixtures.json";
+  public static final String LEAGUES_CLASSIC_STANDINGS_JSON = "leagues-classic-standings.json";
+  public static final String ME_JSON = "authenticated/me.json";
+  public static final String MY_TEAM_JSON = "authenticated/my-team.json";
 
   public static Bootstrap bootstrapStatic() {
     return load(BOOTSTRAP_JSON, Bootstrap.class);
@@ -76,27 +80,21 @@ public class Loader {
     return load(LEAGUES_CLASSIC_STANDINGS_JSON, ClassicLeagueStandings.class);
   }
 
-  @SneakyThrows
-  public static <T> T asType(String json, Class<T> type) {
-    return MAPPER.readValue(json, type);
-  }
-
-  @SneakyThrows
-  public static <T> T asType(String json, TypeReference<T> type) {
-    return MAPPER.readValue(json, type);
+  public static FplPlayer fplPlayer() {
+    return load(ME_JSON, FplPlayer.class);
   }
 
   @SneakyThrows
   private static <T> T load(String file, Class<T> type) {
     return MAPPER.readValue(
-        Loader.class.getClassLoader().getResourceAsStream(RESPONSES + file),
+        Loader.class.getClassLoader().getResourceAsStream(FILES + RESPONSES + file),
         type);
   }
 
   @SneakyThrows
   private static <T> T load(String file, TypeReference<T> type) {
     return MAPPER.readValue(
-        Loader.class.getClassLoader().getResourceAsStream(RESPONSES + file),
+        Loader.class.getClassLoader().getResourceAsStream(FILES + RESPONSES + file),
         type);
   }
 }

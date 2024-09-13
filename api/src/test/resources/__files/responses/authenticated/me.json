@@ -1,0 +1,17 @@
+{
+  "player": {
+    "date_of_birth": "1898-02-14",
+    "default_event": 3,
+    "dirty": false,
+    "first_name": "chilli",
+    "gender": "F",
+    "id": 123897,
+    "last_name": "pepper",
+    "region": 141,
+    "email": "chillidog@gmail.com",
+    "entry": 98764,
+    "entry_email": false,
+    "entry_language": null
+  },
+  "watched": []
+}

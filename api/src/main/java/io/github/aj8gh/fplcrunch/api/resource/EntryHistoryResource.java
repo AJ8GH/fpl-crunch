@@ -1,18 +1,24 @@
 package io.github.aj8gh.fplcrunch.api.resource;
 
-import io.github.aj8gh.fplcrunch.api.ApiPath;
+import static io.github.aj8gh.fplcrunch.api.ApiPath.ENTRY_HISTORY;
+import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
+
+import io.github.aj8gh.fplcrunch.api.mapper.EntryHistoryMapper;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import lombok.RequiredArgsConstructor;
 
-@Path(ApiPath.ENTRY_HISTORY)
+@Path(ENTRY_HISTORY)
+@RequiredArgsConstructor
 public class EntryHistoryResource extends AbstractResource {
 
+  private final EntryHistoryMapper mapper;
+
   @GET
-  @Produces(MediaType.APPLICATION_JSON)
+  @Produces(APPLICATION_JSON)
   public Response get(int id) {
-    return ok(client.entryHistory(id));
+    return ok(mapper.map(client.entryHistory(id)));
   }
 }

@@ -7,9 +7,9 @@ import static org.jboss.resteasy.reactive.RestResponse.StatusCode.OK;
 
 import io.github.aj8gh.fplcrunch.api.ApiPath;
 import io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions;
+import io.github.aj8gh.fplcrunch.api.model.response.fixture.FixtureResponse;
 import io.github.aj8gh.fplcrunch.api.util.Loader;
 import io.github.aj8gh.fplcrunch.client.ClientPath;
-import io.github.aj8gh.fplcrunch.client.model.response.fixture.Fixture;
 import io.quarkus.test.common.WithTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.common.mapper.TypeRef;
@@ -24,7 +24,7 @@ class FixtureResourceTest {
   @Test
   @SneakyThrows
   void getFixtures() {
-    stubHappyPath(ClientPath.FIXTURES, Loader.fixtures());
+    stubHappyPath(ClientPath.FIXTURES);
 
     assertThat(when()
         .get(ApiPath.FIXTURES)
@@ -32,7 +32,8 @@ class FixtureResourceTest {
         .statusCode(OK)
         .extract()
         .response()
-        .as(new TypeRef<List<Fixture>>() {
-        })).isEqualTo(Loader.fixtures());
+        .as(new TypeRef<List<FixtureResponse>>() {
+        })).usingRecursiveComparison()
+        .isEqualTo(Loader.fixtures());
   }
 }

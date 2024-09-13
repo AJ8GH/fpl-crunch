@@ -11,6 +11,8 @@ subprojects {
     // General
     compileOnly "org.projectlombok:lombok:$lombokVersion"
     annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    implementation "org.mapstruct:mapstruct:$mapstructVersion"
+    annotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
 
     // Quarkus test
     testImplementation 'io.quarkus:quarkus-junit5'

@@ -1,18 +1,24 @@
 package io.github.aj8gh.fplcrunch.api.resource;
 
-import io.github.aj8gh.fplcrunch.api.ApiPath;
+import static io.github.aj8gh.fplcrunch.api.ApiPath.FIXTURES;
+import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
+
+import io.github.aj8gh.fplcrunch.api.mapper.FixtureMapper;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import lombok.RequiredArgsConstructor;
 
-@Path(ApiPath.FIXTURES)
+@Path(FIXTURES)
+@RequiredArgsConstructor
 public class FixtureResource extends AbstractResource {
 
+  private final FixtureMapper mapper;
+
   @GET
-  @Produces(MediaType.APPLICATION_JSON)
+  @Produces(APPLICATION_JSON)
   public Response get() {
-    return ok(client.fixtures());
+    return ok(mapper.map(client.fixtures()));
   }
 }
