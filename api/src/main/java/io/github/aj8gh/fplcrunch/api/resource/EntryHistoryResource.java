@@ -11,13 +11,13 @@ import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
 
 @Path(ENTRY_HISTORY)
+@Produces(APPLICATION_JSON)
 @RequiredArgsConstructor
 public class EntryHistoryResource extends AbstractResource {
 
   private final EntryHistoryMapper mapper;
 
   @GET
-  @Produces(APPLICATION_JSON)
   public Response get(int id) {
     return ok(mapper.map(client.entryHistory(id)));
   }

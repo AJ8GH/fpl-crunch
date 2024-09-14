@@ -11,13 +11,13 @@ import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
 
 @Path(BOOTSTRAP)
+@Produces(APPLICATION_JSON)
 @RequiredArgsConstructor
 public class BootstrapResource extends AbstractResource {
 
   private final BootstrapMapper mapper;
 
   @GET
-  @Produces(APPLICATION_JSON)
   public Response get() {
     return ok(mapper.map(client.bootstrapStatic()));
   }

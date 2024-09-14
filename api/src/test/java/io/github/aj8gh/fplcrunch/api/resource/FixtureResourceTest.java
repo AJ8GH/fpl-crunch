@@ -14,7 +14,6 @@ import io.quarkus.test.common.WithTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.common.mapper.TypeRef;
 import java.util.List;
-import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
@@ -22,7 +21,6 @@ import org.junit.jupiter.api.Test;
 class FixtureResourceTest {
 
   @Test
-  @SneakyThrows
   void getFixtures() {
     stubHappyPath(ClientPath.FIXTURES);
 

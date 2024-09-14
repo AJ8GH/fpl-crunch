@@ -1,8 +1,7 @@
 package io.github.aj8gh.fplcrunch.api.resource;
 
-import static io.github.aj8gh.fplcrunch.api.ApiPath.ACCOUNTS_BASE;
-import static io.github.aj8gh.fplcrunch.api.ApiPath.LOGIN;
-import static io.github.aj8gh.fplcrunch.api.ApiPath.LOGIN_DEFAULT;
+import static io.github.aj8gh.fplcrunch.api.ApiPath.Login.BASE;
+import static io.github.aj8gh.fplcrunch.api.ApiPath.Login.DEFAULT;
 import static io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions.LOCATION_VALUE;
 import static io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions.LOGIN_VALUE;
 import static io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions.PASSWORD_VALUE;
@@ -43,7 +42,7 @@ class AccountResourceTest {
         .contentType(APPLICATION_JSON)
         .body(request)
         .when()
-        .post(STR."\{ACCOUNTS_BASE}\{LOGIN}")
+        .post(BASE)
         .then()
         .statusCode(FOUND)
         .header(LOCATION, LOCATION_VALUE)
@@ -57,7 +56,7 @@ class AccountResourceTest {
     stubLoginPath();
 
     when()
-        .post(STR."\{ACCOUNTS_BASE}\{LOGIN_DEFAULT}")
+        .post(BASE + DEFAULT)
         .then()
         .statusCode(FOUND)
         .header(LOCATION, LOCATION_VALUE)

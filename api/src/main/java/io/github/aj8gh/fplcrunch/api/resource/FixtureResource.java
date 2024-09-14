@@ -11,13 +11,13 @@ import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
 
 @Path(FIXTURES)
+@Produces(APPLICATION_JSON)
 @RequiredArgsConstructor
 public class FixtureResource extends AbstractResource {
 
   private final FixtureMapper mapper;
 
   @GET
-  @Produces(APPLICATION_JSON)
   public Response get() {
     return ok(mapper.map(client.fixtures()));
   }

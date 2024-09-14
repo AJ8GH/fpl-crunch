@@ -1,6 +1,5 @@
 package io.github.aj8gh.fplcrunch.api.resource;
 
-import static io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions.GW;
 import static io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions.ID;
 import static io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions.stubHappyPath;
 import static io.restassured.RestAssured.when;
@@ -9,31 +8,29 @@ import static org.jboss.resteasy.reactive.RestResponse.StatusCode.OK;
 
 import io.github.aj8gh.fplcrunch.api.ApiPath;
 import io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions;
-import io.github.aj8gh.fplcrunch.api.model.response.entry.pick.EntryPicksResponse;
+import io.github.aj8gh.fplcrunch.api.model.response.league.classic.ClassicLeagueStandingsResponse;
 import io.github.aj8gh.fplcrunch.api.util.Loader;
 import io.github.aj8gh.fplcrunch.client.ClientPath;
 import io.quarkus.test.common.WithTestResource;
 import io.quarkus.test.junit.QuarkusTest;
-import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 @WithTestResource(WireMockExtensions.class)
-class EntryPickResourceTest {
+class ClassicLeagueResourceTest {
 
   @Test
-  @SneakyThrows
-  void getEntryPicks() {
-    stubHappyPath(ClientPath.ENTRY_PICKS);
+  void getClassicLeagueStandings() {
+    stubHappyPath(ClientPath.LEAGUES_CLASSIC_STANDINGS);
 
     assertThat(when()
-        .get(ApiPath.ENTRY_PICKS, ID, GW)
+        .get(ApiPath.Leagues.LEAGUES_CLASSIC + ApiPath.Leagues.STANDINGS, ID)
         .then()
         .statusCode(OK)
         .extract()
         .response()
-        .as(EntryPicksResponse.class))
+        .as(ClassicLeagueStandingsResponse.class))
         .usingRecursiveComparison()
-        .isEqualTo(Loader.entryPicks());
+        .isEqualTo(Loader.classicLeagueStandings());
   }
 }

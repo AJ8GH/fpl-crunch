@@ -11,13 +11,13 @@ import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
 
 @Path(ELEMENT_SUMMARY)
+@Produces(APPLICATION_JSON)
 @RequiredArgsConstructor
 public class ElementResource extends AbstractResource {
 
   private final ElementSummaryMapper mapper;
 
   @GET
-  @Produces(APPLICATION_JSON)
   public Response get(int id) {
     return ok(mapper.map(client.elementSummary(id)));
   }

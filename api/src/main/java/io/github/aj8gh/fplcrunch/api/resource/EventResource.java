@@ -11,13 +11,13 @@ import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
 
 @Path(EVENT_LIVE)
+@Produces(APPLICATION_JSON)
 @RequiredArgsConstructor
 public class EventResource extends AbstractResource {
 
   private final EventLiveMapper mapper;
 
   @GET
-  @Produces(APPLICATION_JSON)
   public Response get(int gw) {
     return ok(mapper.map(client.eventLive(gw)));
   }

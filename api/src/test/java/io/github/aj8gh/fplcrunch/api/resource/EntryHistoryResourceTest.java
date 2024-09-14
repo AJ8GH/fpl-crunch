@@ -13,7 +13,6 @@ import io.github.aj8gh.fplcrunch.api.util.Loader;
 import io.github.aj8gh.fplcrunch.client.ClientPath;
 import io.quarkus.test.common.WithTestResource;
 import io.quarkus.test.junit.QuarkusTest;
-import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
@@ -21,7 +20,6 @@ import org.junit.jupiter.api.Test;
 class EntryHistoryResourceTest {
 
   @Test
-  @SneakyThrows
   void getEntryHistory() {
     stubHappyPath(ClientPath.ENTRY_HISTORY);
 

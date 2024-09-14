@@ -13,13 +13,13 @@ import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
 
 @Path(MY_TEAM)
+@Produces(APPLICATION_JSON)
 @RequiredArgsConstructor
 public class TeamResource extends AbstractResource {
 
   private final TeamMapper mapper;
 
   @GET
-  @Produces(APPLICATION_JSON)
   public Response me(@CookieParam(PL_PROFILE) String token, int id) {
     return ok(mapper.map(client.myTeam(token, id)));
   }
