@@ -25,7 +25,7 @@ class FixtureResourceTest {
     stubHappyPath(ClientPath.FIXTURES);
 
     assertThat(when()
-        .get(ApiPath.FIXTURES)
+        .get(ApiPath.ROOT + ApiPath.FIXTURES)
         .then()
         .statusCode(OK)
         .extract()

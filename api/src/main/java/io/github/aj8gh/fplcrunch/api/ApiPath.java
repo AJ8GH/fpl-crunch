@@ -5,6 +5,7 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class ApiPath {
 
+  public static final String ROOT = "/api";
   public static final String BOOTSTRAP = "/bootstrap";
   public static final String ELEMENT_SUMMARY = "/element-summary/{id}";
   public static final String ENTRY_HISTORY = "/entry-history/{id}";

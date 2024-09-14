@@ -50,65 +50,41 @@ import static jakarta.ws.rs.core.HttpHeaders.SET_COOKIE;
 import static jakarta.ws.rs.core.HttpHeaders.USER_AGENT;
 import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
 import static java.lang.String.valueOf;
+import static java.util.Collections.emptyMap;
 import static org.jboss.resteasy.reactive.RestResponse.StatusCode.FOUND;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
+import io.github.aj8gh.fplcrunch.api.model.request.LoginRequest;
 import io.quarkus.test.common.QuarkusTestResourceLifecycleManager;
+import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Map;
+import lombok.Getter;
 import lombok.SneakyThrows;
 
+@Getter
+@ApplicationScoped
 public class WireMockExtensions implements QuarkusTestResourceLifecycleManager {
 
   public static final int ID = 99;
   public static final int GW = 3;
-  public static final String LOGIN_VALUE = "abc@testing.com";
-  public static final String PASSWORD_VALUE = "password";
+  public static final String SUCCESS = "success";
   public static final String LOCATION_VALUE = "https://fantasy.premierleague.com/?state=success";
   public static final String PL_PROFILE_VALUE = "eyWwKkaCdD9m0Pasc=";
-  public static final String PL_PROFILE_FULL_VALUE = STR."""
-  \{PL_PROFILE_VALUE}; \
-  Domain=premierleague.com; \
-  expires=Thu, 19 Sep 2024 20:24:56 GMT; \
-  Max-Age=1209600; \
-  Path=/; \
-  Secure""";
-
   public static final String SESSION_ID_VALUE = "jkashduwn98kjahsd7sdf";
+  public static final String PL_PROFILE_FULL_VALUE = STR."""
+  \{PL_PROFILE_VALUE}; Domain=premierleague.com; expires=Thu, 19 Sep 2024 20:24:56 GMT; Max-Age=1209600; Path=/; Secure""";
   public static final String SESSION_ID_FULL_VALUE = STR."""
-  \{SESSION_ID_VALUE}; \
-  expires=Thu, 19 Sep 2024 20:24:56 GMT; \
-  HttpOnly; \
-  Max-Age=1209600; \
-  Path=/; \
-  SameSite=Lax""";
-
-  public static final String SUCCESS = "success";
+  \{SESSION_ID_VALUE}; expires=Thu, 19 Sep 2024 20:24:56 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax""";
 
   private static final String ID_PLACEHOLDER = "{id}";
   private static final String GW_PLACEHOLDER = "{gw}";
   private static final int WIREMOCK_PORT = 8888;
-  private static final String LOGIN_PROPERTY = "accounts.login";
-  private static final String PASSWORD_PROPERTY = "accounts.password";
-  private static final String API_URL_PROPERTY = """
-      quarkus.rest-client\
-      ."io.github.aj8gh.fplcrunch.client.FplApiClient"\
-      .url""";
-  private static final String ACCOUNT_URL_PROPERTY = """
-      quarkus.rest-client\
-      ."io.github.aj8gh.fplcrunch.client.FplAccountClient"\
-      .url""";
-
   private static final WireMockServer WIRE_MOCK = new WireMockServer(WIREMOCK_PORT);
 
   @Override
   public Map<String, String> start() {
     WIRE_MOCK.start();
-    return Map.of(
-        API_URL_PROPERTY, WIRE_MOCK.baseUrl(),
-        ACCOUNT_URL_PROPERTY, WIRE_MOCK.baseUrl(),
-        LOGIN_PROPERTY, LOGIN_VALUE,
-        PASSWORD_PROPERTY, PASSWORD_VALUE
-    );
+    return emptyMap();
   }
 
   @Override
@@ -137,10 +113,10 @@ public class WireMockExtensions implements QuarkusTestResourceLifecycleManager {
             .withHeader(CONTENT_TYPE, APPLICATION_JSON)));
   }
 
-  public static void stubLoginPath() {
+  public static void stubLoginPath(LoginRequest request) {
     WIRE_MOCK.stubFor(post(urlEqualTo(ACCOUNTS_BASE + LOGIN))
-        .withFormParam(LOGIN_NAME, equalTo(LOGIN_VALUE))
-        .withFormParam(PASSWORD_NAME, equalTo(PASSWORD_VALUE))
+        .withFormParam(LOGIN_NAME, equalTo(request.login()))
+        .withFormParam(PASSWORD_NAME, equalTo(request.password()))
         .withFormParam(APP_NAME, equalTo(APP_VALUE))
         .withFormParam(REDIRECT_URI_NAME, equalTo(REDIRECT_URI_VALUE))
         .withHeader(ACCEPT_LANGUAGE, equalTo(ACCEPT_LANGUAGE_VALUE))

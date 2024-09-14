@@ -23,7 +23,7 @@ class BootstrapResourceTest {
     stubHappyPath(ClientPath.BOOTSTRAP_STATIC);
 
     assertThat(when()
-        .get(ApiPath.BOOTSTRAP)
+        .get(ApiPath.ROOT + ApiPath.BOOTSTRAP)
         .then()
         .statusCode(OK)
         .extract()

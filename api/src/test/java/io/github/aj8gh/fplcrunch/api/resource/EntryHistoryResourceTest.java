@@ -24,7 +24,7 @@ class EntryHistoryResourceTest {
     stubHappyPath(ClientPath.ENTRY_HISTORY);
 
     assertThat(when()
-        .get(ApiPath.ENTRY_HISTORY, ID)
+        .get(ApiPath.ROOT + ApiPath.ENTRY_HISTORY, ID)
         .then()
         .statusCode(OK)
         .extract()

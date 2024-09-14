@@ -14,7 +14,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 import lombok.extern.slf4j.Slf4j;
-import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @Slf4j
@@ -24,17 +23,6 @@ public class AccountResource {
 
   private static final String REQUEST_MESSAGE = STR."\{BASE} POST request received";
   private static final String RESPONSE_MESSAGE = STR."{} response received from \{ClientPath.ACCOUNTS_BASE}\{ClientPath.LOGIN}";
-  private static final String DEBUG_RESPONSE_MESSAGE = STR."""
-  \{ClientPath.ACCOUNTS_BASE}\{ClientPath.LOGIN}
-  Response Headers: {}
-  Response Cookies: {}""";
-
-
-  @ConfigProperty(name = "accounts.login")
-  String login;
-
-  @ConfigProperty(name = "accounts.password")
-  String pw;
 
   @RestClient
   FplAccountClient client;
@@ -49,13 +37,11 @@ public class AccountResource {
   @POST
   @Path(DEFAULT)
   public Response loginDefault() {
-    log.info(STR."\{REQUEST_MESSAGE} LOGIN: \{login}, pw: \{pw}");
     return logAndReturn(client.loginDefault());
   }
 
   private Response logAndReturn(Response response) {
     log.info(RESPONSE_MESSAGE, response.getStatus());
-    log.debug(DEBUG_RESPONSE_MESSAGE, response.getHeaders(), response.getCookies());
     return response;
   }
 }

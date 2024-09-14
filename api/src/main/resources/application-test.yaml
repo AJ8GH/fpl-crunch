@@ -5,10 +5,10 @@ quarkus:
     level: INFO
   rest-client:
     io.github.aj8gh.fplcrunch.client.FplApiClient:
-      url: https://fantasy.premierleague.com
+      url: http://localhost:8888
     io.github.aj8gh.fplcrunch.client.FplAccountClient:
-      url: https://users.premierleague.com
+      url: http://localhost:8888
 
 accounts:
-  login: ${LOGIN}
-  password: ${PASSWORD}
+  login: abc@testing.com
+  password: password

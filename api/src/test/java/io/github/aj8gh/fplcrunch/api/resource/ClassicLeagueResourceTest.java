@@ -7,6 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.jboss.resteasy.reactive.RestResponse.StatusCode.OK;
 
 import io.github.aj8gh.fplcrunch.api.ApiPath;
+import io.github.aj8gh.fplcrunch.api.ApiPath.Leagues;
 import io.github.aj8gh.fplcrunch.api.ext.WireMockExtensions;
 import io.github.aj8gh.fplcrunch.api.model.response.league.classic.ClassicLeagueStandingsResponse;
 import io.github.aj8gh.fplcrunch.api.util.Loader;
@@ -24,7 +25,7 @@ class ClassicLeagueResourceTest {
     stubHappyPath(ClientPath.LEAGUES_CLASSIC_STANDINGS);
 
     assertThat(when()
-        .get(ApiPath.Leagues.LEAGUES_CLASSIC + ApiPath.Leagues.STANDINGS, ID)
+        .get(ApiPath.ROOT + Leagues.LEAGUES_CLASSIC + Leagues.STANDINGS, ID)
         .then()
         .statusCode(OK)
         .extract()

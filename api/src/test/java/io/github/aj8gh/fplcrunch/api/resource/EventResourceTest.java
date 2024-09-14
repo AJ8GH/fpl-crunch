@@ -24,7 +24,7 @@ class EventResourceTest {
     stubHappyPath(ClientPath.EVENT_LIVE);
 
     assertThat(when()
-        .get(ApiPath.EVENT_LIVE, GW)
+        .get(ApiPath.ROOT + ApiPath.EVENT_LIVE, GW)
         .then()
         .statusCode(OK)
         .extract()
