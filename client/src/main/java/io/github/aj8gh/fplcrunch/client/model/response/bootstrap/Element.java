@@ -1,5 +1,6 @@
 package io.github.aj8gh.fplcrunch.client.model.response.bootstrap;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import java.math.BigDecimal;
@@ -81,12 +82,12 @@ public record Element(
     String directFreekicksText,
     Integer penaltiesOrder,
     String penaltiesText,
-    Integer expectedGoalsPer90,
-    Integer savesPer90,
-    Integer expectedAssistsPer90,
-    Integer expectedGoalInvolvementsPer90,
-    Integer expectedGoalsConcededPer90,
-    Integer goalsConcededPer90,
+    @JsonAlias("expected_goals_per_90") Integer expectedGoalsPer90,
+    @JsonAlias("saves_per_90") Integer savesPer90,
+    @JsonAlias("expected_assists_per_90") Integer expectedAssistsPer90,
+    @JsonAlias("expected_goal_involvements_per_90") Integer expectedGoalInvolvementsPer90,
+    @JsonAlias("expected_goals_conceded_per_90") Integer expectedGoalsConcededPer90,
+    @JsonAlias("goals_conceded_per_90") Integer goalsConcededPer90,
     Integer nowCostRank,
     Integer nowCostRankType,
     Integer formRank,
@@ -95,8 +96,8 @@ public record Element(
     Integer pointsPerGameRankType,
     Integer selectedRank,
     Integer selectedRankType,
-    Integer startsPer90,
-    Integer cleanSheetsPer90
+    @JsonAlias("starts_per_90") Integer startsPer90,
+    @JsonAlias("clean_sheets_per_90") Integer cleanSheetsPer90
 ) {
 
 }

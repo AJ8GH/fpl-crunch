@@ -8,4 +8,5 @@
     checks="SummaryJavadoc|MissingJavadocType|MissingJavadocMethod|NonEmptyAtcClauseDescription|JavadocParagraph|JavadocPackage|JavadocVariable"
     files="."
   />
+  <suppress checks="LineLength" files="Loader.java"/>
 </suppressions>

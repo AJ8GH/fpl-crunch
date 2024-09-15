@@ -18,6 +18,7 @@ public record Team(
     Integer position,
     String shortName,
     Integer strength,
+    String teamDivision,
     Boolean unavailable,
     Integer win,
     Integer strengthOverallHome,

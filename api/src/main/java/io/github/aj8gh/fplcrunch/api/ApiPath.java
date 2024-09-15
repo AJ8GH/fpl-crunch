@@ -5,14 +5,20 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class ApiPath {
 
-  public static final String ROOT = "/api";
+  public static final String API = "/api";
+  public static final String ROOT = "/";
   public static final String BOOTSTRAP = "/bootstrap";
   public static final String ELEMENT_SUMMARY = "/element-summary/{id}";
-  public static final String ENTRY_HISTORY = "/entry-history/{id}";
-  public static final String EVENT_LIVE = "/event/{gw}/live";
   public static final String FIXTURES = "/fixtures";
   public static final String ME = "/me";
   public static final String MY_TEAM = "/my-team/{id}";
+
+  @UtilityClass
+  public static class Event {
+
+    public static final String EVENTS = "/events";
+    public static final String EVENT_LIVE = "/event/{gw}/live";
+  }
 
   @UtilityClass
   public static class Login {
@@ -26,6 +32,7 @@ public class ApiPath {
 
     public static final String BASE = "/entry/{id}";
     public static final String CUP = "/cup";
+    public static final String HISTORY = "/history";
     public static final String PICKS = "/event/{gw}/picks";
     public static final String TRANSFERS = "/transfers";
     public static final String TRANSFERS_LATEST = "/transfers-latest";

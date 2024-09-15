@@ -10,7 +10,8 @@ public record Phase(
     Integer id,
     String name,
     Integer startEvent,
-    Integer stopEvent
+    Integer stopEvent,
+    Integer highestScore
 ) {
 
 }

@@ -1,4 +1,4 @@
-package io.github.aj8gh.fplcrunch.client.model.response.bootstrap;
+package io.github.aj8gh.fplcrunch.client.model.response.event;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy;
@@ -13,6 +13,7 @@ public record Event(
     Integer id,
     String name,
     Instant deadlineTime,
+    Instant releaseTime,
     Integer averageEntryScore,
     Boolean finished,
     Boolean dataChecked,
@@ -24,7 +25,7 @@ public record Event(
     Boolean isCurrent,
     Boolean isNext,
     Boolean cupLeaguesCreated,
-    @JsonAlias("h2HKoMatchesCreated") Boolean headToHeadKoMatchesCreated,
+    @JsonAlias("h2h_ko_matches_created") Boolean headToHeadKoMatchesCreated,
     Integer rankedCount,
     List<ChipPlay> chipPlays,
     Integer mostSelected,

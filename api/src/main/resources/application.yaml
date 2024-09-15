@@ -1,4 +1,6 @@
 quarkus:
+  jackson:
+    fail-on-unknown-properties: true
   rest:
     path: api
   log:

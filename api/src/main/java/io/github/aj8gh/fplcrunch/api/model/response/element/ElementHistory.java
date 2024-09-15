@@ -1,6 +1,5 @@
 package io.github.aj8gh.fplcrunch.api.model.response.element;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import java.math.BigDecimal;
 import java.time.Instant;
 import lombok.Builder;
@@ -13,8 +12,8 @@ public record ElementHistory(
     Integer totalPoints,
     Boolean wasHome,
     Instant kickoffTime,
-    @JsonAlias("teamHScore") Integer teamHomeScore,
-    @JsonAlias("teamAScore") Integer teamAwayScore,
+    Integer teamHomeScore,
+    Integer teamAwayScore,
     Integer round,
     Integer minutes,
     Integer goalsScored,

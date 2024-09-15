@@ -14,6 +14,8 @@ public record ElementType(
     String singularName,
     String singularNameShort,
     Integer squadSelect,
+    Integer squadMinSelect,
+    Integer squadMaxSelect,
     Integer squadMinPlay,
     Integer squadMaxPlay,
     Boolean uiShirtSpecific,

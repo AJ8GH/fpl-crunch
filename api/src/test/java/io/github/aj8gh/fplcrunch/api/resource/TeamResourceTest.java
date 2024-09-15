@@ -28,7 +28,7 @@ class TeamResourceTest {
     assertThat(given()
         .cookie(PL_PROFILE, PL_PROFILE_VALUE)
         .when()
-        .get(ApiPath.ROOT + ApiPath.MY_TEAM, ID)
+        .get(ApiPath.API + ApiPath.MY_TEAM, ID)
         .then()
         .statusCode(OK)
         .extract()

@@ -1,6 +1,5 @@
 package io.github.aj8gh.fplcrunch.api.model.response.fixture;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import java.time.Instant;
 import java.util.List;
 import lombok.Builder;
@@ -16,13 +15,13 @@ public record FixtureResponse(
     Integer minutes,
     Boolean provisionalStartTime,
     Boolean started,
-    @JsonAlias("teamA") Integer teamAway,
-    @JsonAlias("teamAScore") Integer teamAwayScore,
-    @JsonAlias("teamH") Integer teamHome,
-    @JsonAlias("teamHScore") Integer teamHomeScore,
+    Integer teamAway,
+    Integer teamAwayScore,
+    Integer teamHome,
+    Integer teamHomeScore,
     List<FixtureStat> stats,
-    @JsonAlias("teamHDifficulty") Integer teamHomeDifficulty,
-    @JsonAlias("teamADifficulty") Integer teamAwayDifficulty,
+    Integer teamHomeDifficulty,
+    Integer teamAwayDifficulty,
     Integer pulseId
 ) {
 

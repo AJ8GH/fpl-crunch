@@ -43,7 +43,7 @@ class AccountResourceTest {
         .contentType(APPLICATION_JSON)
         .body(request)
         .when()
-        .post(ApiPath.ROOT + Login.BASE)
+        .post(ApiPath.API + Login.BASE)
         .then()
         .statusCode(FOUND)
         .header(LOCATION, LOCATION_VALUE)
@@ -57,7 +57,7 @@ class AccountResourceTest {
     stubLoginPath(request());
 
     when()
-        .post(ApiPath.ROOT + Login.BASE + Login.DEFAULT)
+        .post(ApiPath.API + Login.BASE + Login.DEFAULT)
         .then()
         .statusCode(FOUND)
         .header(LOCATION, LOCATION_VALUE)

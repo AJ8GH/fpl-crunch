@@ -1,12 +1,9 @@
-package io.github.aj8gh.fplcrunch.client.model.response.event;
+package io.github.aj8gh.fplcrunch.api.model.response.event.live;
 
-import com.fasterxml.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import java.math.BigDecimal;
 import lombok.Builder;
 
 @Builder(toBuilder = true)
-@JsonNaming(SnakeCaseStrategy.class)
 public record Stats(
     Integer minutes,
     Integer goalsScored,

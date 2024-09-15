@@ -19,13 +19,13 @@ public record Fixture(
     Integer minutes,
     Boolean provisionalStartTime,
     Boolean started,
-    @JsonAlias("teamA") Integer teamAway,
-    @JsonAlias("teamAScore") Integer teamAwayScore,
-    @JsonAlias("teamH") Integer teamHome,
-    @JsonAlias("teamHScore") Integer teamHomeScore,
+    @JsonAlias("team_a") Integer teamAway,
+    @JsonAlias("team_a_score") Integer teamAwayScore,
+    @JsonAlias("team_h") Integer teamHome,
+    @JsonAlias("team_h_score") Integer teamHomeScore,
     List<FixtureStat> stats,
-    @JsonAlias("teamHDifficulty") Integer teamHomeDifficulty,
-    @JsonAlias("teamADifficulty") Integer teamAwayDifficulty,
+    @JsonAlias("team_h_difficulty") Integer teamHomeDifficulty,
+    @JsonAlias("team_a_difficulty") Integer teamAwayDifficulty,
     Integer pulseId
 ) {
 

@@ -1,4 +1,4 @@
-package io.github.aj8gh.fplcrunch.api.model.response.event;
+package io.github.aj8gh.fplcrunch.api.model.response.event.live;
 
 import lombok.Builder;
 

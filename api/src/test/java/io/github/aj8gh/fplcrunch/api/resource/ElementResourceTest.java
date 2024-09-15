@@ -24,7 +24,7 @@ class ElementResourceTest {
     stubHappyPath(ClientPath.ELEMENT_SUMMARY);
 
     assertThat(when()
-        .get(ApiPath.ROOT + ApiPath.ELEMENT_SUMMARY, ID)
+        .get(ApiPath.API + ApiPath.ELEMENT_SUMMARY, ID)
         .then()
         .statusCode(OK)
         .extract()

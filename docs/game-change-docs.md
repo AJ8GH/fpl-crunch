@@ -1,6 +1,6 @@
 # A Complete Guide to the Fantasy Premier League (FPL) API
 
-From: [GameChange](https://checkstyle.org/dtds/suppressions_1_2.dtd)
+From: [GameChange](https://www.game-change.co.uk/fpl-tools/)
 
 ## What is the FPL API?
 

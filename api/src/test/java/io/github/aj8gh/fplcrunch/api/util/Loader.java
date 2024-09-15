@@ -12,7 +12,8 @@ import io.github.aj8gh.fplcrunch.client.model.response.entry.history.EntryHistor
 import io.github.aj8gh.fplcrunch.client.model.response.entry.pick.EntryPicks;
 import io.github.aj8gh.fplcrunch.client.model.response.entry.summary.Entry;
 import io.github.aj8gh.fplcrunch.client.model.response.entry.transfer.EntryTransfer;
-import io.github.aj8gh.fplcrunch.client.model.response.event.EventLive;
+import io.github.aj8gh.fplcrunch.client.model.response.event.Event;
+import io.github.aj8gh.fplcrunch.client.model.response.event.live.EventLive;
 import io.github.aj8gh.fplcrunch.client.model.response.fixture.Fixture;
 import io.github.aj8gh.fplcrunch.client.model.response.league.classic.ClassicLeagueStandings;
 import io.github.aj8gh.fplcrunch.client.model.response.me.FplPlayer;
@@ -37,9 +38,13 @@ public class Loader {
   public static final String ENTRY_HISTORY_JSON = "entry-history.json";
   public static final String ENTRY_PICKS_JSON = "entry-picks.json";
   public static final String ENTRY_TRANSFERS_JSON = "entry-transfers.json";
+  public static final String ENTRY_TRANSFERS_LATEST_JSON = "authenticated/entry-transfers-latest.json";
   public static final String EVENT_LIVE_JSON = "event-live.json";
+  public static final String EVENTS_JSON = "events.json";
   public static final String FIXTURES_JSON = "fixtures.json";
+  public static final String FIXTURES_PAGINATED_JSON = "fixtures-paginated.json";
   public static final String LEAGUES_CLASSIC_STANDINGS_JSON = "leagues-classic-standings.json";
+  public static final String LEAGUES_CLASSIC_STANDINGS_PAGINATED_JSON = "leagues-classic-standings-paginated.json";
   public static final String ME_JSON = "authenticated/me.json";
   public static final String MY_TEAM_JSON = "authenticated/my-team.json";
 
@@ -68,8 +73,18 @@ public class Loader {
     });
   }
 
+  public static List<EntryTransfer> entryTransfersLatest() {
+    return load(ENTRY_TRANSFERS_LATEST_JSON, new TypeReference<>() {
+    });
+  }
+
   public static EventLive eventLive() {
     return load(EVENT_LIVE_JSON, EventLive.class);
+  }
+
+  public static List<Event> events() {
+    return load(EVENTS_JSON, new TypeReference<>() {
+    });
   }
 
   public List<Fixture> fixtures() {
@@ -77,8 +92,17 @@ public class Loader {
     });
   }
 
+  public List<Fixture> fixturesPaginated() {
+    return load(FIXTURES_PAGINATED_JSON, new TypeReference<>() {
+    });
+  }
+
   public static ClassicLeagueStandings classicLeagueStandings() {
     return load(LEAGUES_CLASSIC_STANDINGS_JSON, ClassicLeagueStandings.class);
+  }
+
+  public static ClassicLeagueStandings classicLeagueStandingsPaginated() {
+    return load(LEAGUES_CLASSIC_STANDINGS_PAGINATED_JSON, ClassicLeagueStandings.class);
   }
 
   public static FplPlayer fplPlayer() {

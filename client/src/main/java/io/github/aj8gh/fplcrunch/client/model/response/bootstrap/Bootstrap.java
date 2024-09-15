@@ -2,6 +2,7 @@ package io.github.aj8gh.fplcrunch.client.model.response.bootstrap;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import io.github.aj8gh.fplcrunch.client.model.response.event.Event;
 import java.util.List;
 import lombok.Builder;
 

@@ -12,9 +12,13 @@ import static io.github.aj8gh.fplcrunch.api.util.Loader.ENTRY_HISTORY_JSON;
 import static io.github.aj8gh.fplcrunch.api.util.Loader.ENTRY_JSON;
 import static io.github.aj8gh.fplcrunch.api.util.Loader.ENTRY_PICKS_JSON;
 import static io.github.aj8gh.fplcrunch.api.util.Loader.ENTRY_TRANSFERS_JSON;
+import static io.github.aj8gh.fplcrunch.api.util.Loader.ENTRY_TRANSFERS_LATEST_JSON;
+import static io.github.aj8gh.fplcrunch.api.util.Loader.EVENTS_JSON;
 import static io.github.aj8gh.fplcrunch.api.util.Loader.EVENT_LIVE_JSON;
 import static io.github.aj8gh.fplcrunch.api.util.Loader.FIXTURES_JSON;
+import static io.github.aj8gh.fplcrunch.api.util.Loader.FIXTURES_PAGINATED_JSON;
 import static io.github.aj8gh.fplcrunch.api.util.Loader.LEAGUES_CLASSIC_STANDINGS_JSON;
+import static io.github.aj8gh.fplcrunch.api.util.Loader.LEAGUES_CLASSIC_STANDINGS_PAGINATED_JSON;
 import static io.github.aj8gh.fplcrunch.api.util.Loader.ME_JSON;
 import static io.github.aj8gh.fplcrunch.api.util.Loader.MY_TEAM_JSON;
 import static io.github.aj8gh.fplcrunch.api.util.Loader.RESPONSES;
@@ -26,6 +30,8 @@ import static io.github.aj8gh.fplcrunch.client.ClientPath.ENTRY;
 import static io.github.aj8gh.fplcrunch.client.ClientPath.ENTRY_HISTORY;
 import static io.github.aj8gh.fplcrunch.client.ClientPath.ENTRY_PICKS;
 import static io.github.aj8gh.fplcrunch.client.ClientPath.ENTRY_TRANSFERS;
+import static io.github.aj8gh.fplcrunch.client.ClientPath.ENTRY_TRANSFERS_LATEST;
+import static io.github.aj8gh.fplcrunch.client.ClientPath.EVENTS;
 import static io.github.aj8gh.fplcrunch.client.ClientPath.EVENT_LIVE;
 import static io.github.aj8gh.fplcrunch.client.ClientPath.FIXTURES;
 import static io.github.aj8gh.fplcrunch.client.ClientPath.LEAGUES_CLASSIC_STANDINGS;
@@ -57,6 +63,7 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import io.github.aj8gh.fplcrunch.api.model.request.LoginRequest;
 import io.quarkus.test.common.QuarkusTestResourceLifecycleManager;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.ws.rs.NotSupportedException;
 import java.util.Map;
 import lombok.Getter;
 import lombok.SneakyThrows;
@@ -67,7 +74,9 @@ public class WireMockExtensions implements QuarkusTestResourceLifecycleManager {
 
   public static final int ID = 99;
   public static final int GW = 3;
+  public static final int QUERY_VALUE = 5;
   public static final String SUCCESS = "success";
+  public static final String PAGINATED = "_PAGINATED";
   public static final String LOCATION_VALUE = "https://fantasy.premierleague.com/?state=success";
   public static final String PL_PROFILE_VALUE = "eyWwKkaCdD9m0Pasc=";
   public static final String SESSION_ID_VALUE = "jkashduwn98kjahsd7sdf";
@@ -99,6 +108,16 @@ public class WireMockExtensions implements QuarkusTestResourceLifecycleManager {
         .replace(GW_PLACEHOLDER, valueOf(GW))))
         .willReturn(ok()
             .withBodyFile(RESPONSES + pathToJson(path))
+            .withHeader(CONTENT_TYPE, APPLICATION_JSON)));
+  }
+
+  @SneakyThrows
+  public static void stubHappyPath(String path, String queryName, int queryValue) {
+    WIRE_MOCK.stubFor(get(urlEqualTo(STR."\{API_BASE}\{path
+        .replace(ID_PLACEHOLDER, valueOf(ID))
+        .replace(GW_PLACEHOLDER, valueOf(GW))}?\{queryName}=\{queryValue}"))
+        .willReturn(ok()
+            .withBodyFile(RESPONSES + pathToJson(path + PAGINATED))
             .withHeader(CONTENT_TYPE, APPLICATION_JSON)));
   }
 
@@ -136,12 +155,16 @@ public class WireMockExtensions implements QuarkusTestResourceLifecycleManager {
       case ENTRY_HISTORY -> ENTRY_HISTORY_JSON;
       case ENTRY_PICKS -> ENTRY_PICKS_JSON;
       case ENTRY_TRANSFERS -> ENTRY_TRANSFERS_JSON;
+      case ENTRY_TRANSFERS_LATEST -> ENTRY_TRANSFERS_LATEST_JSON;
       case EVENT_LIVE -> EVENT_LIVE_JSON;
+      case EVENTS -> EVENTS_JSON;
       case FIXTURES -> FIXTURES_JSON;
+      case FIXTURES + PAGINATED -> FIXTURES_PAGINATED_JSON;
       case LEAGUES_CLASSIC_STANDINGS -> LEAGUES_CLASSIC_STANDINGS_JSON;
+      case LEAGUES_CLASSIC_STANDINGS + PAGINATED -> LEAGUES_CLASSIC_STANDINGS_PAGINATED_JSON;
       case ME -> ME_JSON;
       case MY_TEAM -> MY_TEAM_JSON;
-      default -> null;
+      default -> throw new NotSupportedException(STR."Stub not implemented for \{path}");
     };
   }
 }

@@ -1,15 +1,15 @@
-package io.github.aj8gh.fplcrunch.api.model.response.bootstrap;
+package io.github.aj8gh.fplcrunch.api.model.response.event;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import java.time.Instant;
 import java.util.List;
 import lombok.Builder;
 
 @Builder(toBuilder = true)
-public record Event(
+public record EventResponse(
     Integer id,
     String name,
     Instant deadlineTime,
+    Instant releaseTime,
     Integer averageEntryScore,
     Boolean finished,
     Boolean dataChecked,
@@ -21,7 +21,7 @@ public record Event(
     Boolean isCurrent,
     Boolean isNext,
     Boolean cupLeaguesCreated,
-    @JsonAlias("h2HKoMatchesCreated") Boolean headToHeadKoMatchesCreated,
+    Boolean headToHeadKoMatchesCreated,
     Integer rankedCount,
     List<ChipPlay> chipPlays,
     Integer mostSelected,

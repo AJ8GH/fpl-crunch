@@ -18,6 +18,7 @@ public class ClientPath {
   public static final String ENTRY_TRANSFERS = "/entry/{id}/transfers/";
   public static final String ENTRY_TRANSFERS_LATEST = "/entry/{id}/transfers-latest/";
   public static final String EVENT_LIVE = "/event/{gw}/live/";
+  public static final String EVENTS = "/events/";
   public static final String FIXTURES = "/fixtures/";
   public static final String LEAGUES_CLASSIC_STANDINGS = "/leagues-classic/{id}/standings/";
   public static final String LEAGUES_HEAD_TO_HEAD = "/leagues-h2h-matches/league/{id}/";

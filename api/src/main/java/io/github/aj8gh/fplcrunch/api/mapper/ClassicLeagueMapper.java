@@ -5,7 +5,7 @@ import io.github.aj8gh.fplcrunch.client.model.response.league.classic.ClassicLea
 import org.mapstruct.Mapper;
 
 @Mapper
-public interface ClassicLeagueStandingsMapper {
+public interface ClassicLeagueMapper {
 
   ClassicLeagueStandingsResponse map(ClassicLeagueStandings from);
 }

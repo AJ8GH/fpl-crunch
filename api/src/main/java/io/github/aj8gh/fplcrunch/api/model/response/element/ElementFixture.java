@@ -1,6 +1,5 @@
 package io.github.aj8gh.fplcrunch.api.model.response.element;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import java.time.Instant;
 import lombok.Builder;
 
@@ -8,10 +7,10 @@ import lombok.Builder;
 public record ElementFixture(
     Integer id,
     Integer code,
-    @JsonAlias("teamH") Integer teamHome,
-    @JsonAlias("teamHScore") Integer teamHomeScore,
-    @JsonAlias("teamA") Integer teamAway,
-    @JsonAlias("teamAScore") Integer teamAwayScore,
+    Integer teamHome,
+    Integer teamHomeScore,
+    Integer teamAway,
+    Integer teamAwayScore,
     Integer event,
     Boolean finished,
     Integer minutes,

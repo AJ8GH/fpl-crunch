@@ -27,7 +27,7 @@ class PlayerResourceTest {
     assertThat(given()
         .cookie(PL_PROFILE, PL_PROFILE_VALUE)
         .when()
-        .get(ApiPath.ROOT + ApiPath.ME)
+        .get(ApiPath.API + ApiPath.ME)
         .then()
         .statusCode(OK)
         .extract()

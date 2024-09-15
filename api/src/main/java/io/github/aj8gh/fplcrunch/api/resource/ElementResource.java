@@ -3,7 +3,7 @@ package io.github.aj8gh.fplcrunch.api.resource;
 import static io.github.aj8gh.fplcrunch.api.ApiPath.ELEMENT_SUMMARY;
 import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
 
-import io.github.aj8gh.fplcrunch.api.mapper.ElementSummaryMapper;
+import io.github.aj8gh.fplcrunch.api.mapper.ElementMapper;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ElementResource extends AbstractResource {
 
-  private final ElementSummaryMapper mapper;
+  private final ElementMapper mapper;
 
   @GET
   public Response get(int id) {

@@ -10,7 +10,7 @@ import lombok.Builder;
 @JsonNaming(SnakeCaseStrategy.class)
 public record ClassicLeagueStandings(
     NewEntries newEntries,
-    @JsonAlias("lastUpdatedData") Instant lastUpdatedDate,
+    @JsonAlias("last_updated_data") Instant lastUpdatedDate,
     ClassicLeagueStandingsLeague league,
     Standings standings
 ) {

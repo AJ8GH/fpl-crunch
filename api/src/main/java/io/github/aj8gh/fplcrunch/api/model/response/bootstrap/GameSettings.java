@@ -1,6 +1,5 @@
 package io.github.aj8gh.fplcrunch.api.model.response.bootstrap;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import java.time.ZoneId;
 import java.util.List;
 import lombok.Builder;
@@ -10,14 +9,18 @@ public record GameSettings(
     Integer leagueJoinPrivateMax,
     Integer leagueJoinPublicMax,
     Integer leagueMaxSizePublicClassic,
-    @JsonAlias("leagueMaxSizePublicH2H") Integer leagueMaxSizePublicHeadToHead,
-    @JsonAlias("leagueMaxSizePrivateH2H") Integer leagueMaxSizePrivateHeadToHead,
-    @JsonAlias("leagueMaxKoRoundsPrivateH2H") Integer leagueMaxKoRoundsPrivateHeadToHead,
+    Integer leagueMaxSizePublicHeadToHead,
+    Integer leagueMaxSizePrivateHeadToHead,
+    Integer leagueMaxKoRoundsPrivateHeadToHead,
     String leaguePrefixPublic,
-    @JsonAlias("leaguePointsH2HWin") Integer leaguePointsHeadToHeadWin,
-    @JsonAlias("leaguePointsH2HLose") Integer leaguePointsHeadToHeadLose,
-    @JsonAlias("leaguePointsH2HDraw") Integer leaguePointsHeadToHeadDraw,
+    Integer leaguePointsHeadToHeadWin,
+    Integer leaguePointsHeadToHeadLose,
+    Integer leaguePointsHeadToHeadDraw,
     Boolean leagueKoFirstInsteadOfRandom,
+    Integer cupStartEventId,
+    Integer cupStopEventId,
+    String cupQualifyingMethod,
+    String cupType,
     List<Integer> featuredEntries,
     List<Integer> percentileRanks,
     Integer squadSquadplay,
@@ -31,7 +34,8 @@ public record GameSettings(
     Boolean sysViceCaptainEnabled,
     Integer transfersCap,
     Integer transfersSellOnFee,
-    @JsonAlias("leagueH2HTiebreakStats") List<String> leagueHeadToHeadTiebreakStats,
+    Integer maxExtraFreeTransfers,
+    List<String> leagueHeadToHeadTiebreakStats,
     ZoneId timezone
 ) {
 
